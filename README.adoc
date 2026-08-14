@@ -1,0 +1,3 @@
+# sort_media
+
+This linux app should sort media to folders in Year/Month structure.
