@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sort_media/features/log/ui/logs_view_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -109,6 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            LogsViewWidget(),
           ],
         ),
       ),
