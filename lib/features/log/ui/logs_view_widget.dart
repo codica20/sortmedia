@@ -17,10 +17,7 @@ class LogsViewWidget extends StatelessWidget {
           crossAxisAlignment: .stretch,
           children: [
             Text(heading),
-            SizedBox.fromSize(
-              size: Size.fromHeight(100),
-              child: _LogItemsWidget(),
-            ),
+            Expanded(child: _LogItemsWidget()),
           ],
         );
       },
