@@ -1,3 +1,16 @@
 # sort_media
 
 This linux app should sort media to folders in Year/Month structure.
+
+## Development
+
+### Architecture
+
+#### Features
+
+Features contain subfolders
+
+* ui
+* uistate - state that contains code related to widgets
+* state - pure state
+* data - logic to calculate, fetch or combine data needed for state
