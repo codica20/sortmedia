@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sort_media/features/log/ui/log_item_widget.dart';
 import 'package:sort_media/features/log/uistate/logger.dart';
 
 class LogsViewWidget extends StatelessWidget {
@@ -10,15 +11,22 @@ class LogsViewWidget extends StatelessWidget {
     return ListenableBuilder(
       listenable: logger,
       builder: (context, child) {
+        final theme = Theme.of(context);
         final int len = logger.logs.length;
         final String heading = "logs ($len)";
-        return Column(
-          mainAxisSize: .min,
-          crossAxisAlignment: .stretch,
-          children: [
-            Text(heading),
-            Expanded(child: _LogItemsWidget()),
-          ],
+        return Padding(
+          padding: .all(20),
+
+          child: Column(
+            crossAxisAlignment: .stretch,
+            children: [
+              Container(
+                color: theme.colorScheme.primaryContainer,
+                child: Text(heading, style: theme.textTheme.headlineMedium),
+              ),
+              Expanded(child: _LogItemsWidget()),
+            ],
+          ),
         );
       },
     );
@@ -34,10 +42,9 @@ class _LogItemsWidget extends StatelessWidget {
       builder: (context, child) {
         return ListView.builder(
           itemCount: len,
-          itemBuilder: (context, index) => ListTile(
-            title: Text(
-              '${logger.logs.length} -${logger.logs[len - index - 1]}',
-            ),
+          itemBuilder: (context, index) => LogItemWidget(
+            logger.logs[len - index - 1],
+            key: Key("log-$index"),
           ),
         );
       },

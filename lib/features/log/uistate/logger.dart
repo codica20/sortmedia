@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
-typedef LogItem = String;
+class LogItem {
+  final String _msg;
+  LogItem(this._msg);
+  String get message => _msg;
+}
 
 class Logger extends ChangeNotifier {
-  final List<LogItem> _logs = ["Erster Eintrag"];
+  final List<LogItem> _logs = [];
 
   void log(String msg) {
-    _logs.add(msg);
+    _logs.add(LogItem(msg));
     notifyListeners();
   }
 
