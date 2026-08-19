@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:sort_media/features/log/settings/ui/settings_widget.dart';
-import 'package:sort_media/features/log/ui/logs_view_widget.dart';
-import 'package:sort_media/features/log/uistate/logger.dart';
+import 'package:sort_media/features/settings/state/settings_state.dart';
+
+import 'features/settings/ui/settings_widget.dart';
+import 'features/log/ui/logs_view_widget.dart';
+import 'features/log/uistate/logger.dart';
 
 void main() {
   registerLogger();
+  registerSettingsState();
   runApp(const MyApp());
 }
 
