@@ -83,7 +83,8 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         children: [
           Expanded(
-            child: Center(
+            child: Padding(
+              padding: .all(15),
               child: Column(
                 children: [
                   const Text(
