@@ -14,3 +14,24 @@ Features contain subfolders
 * uistate - state that contains code related to widgets
 * state - pure state
 * data - logic to calculate, fetch or combine data needed for state
+
+## ToDo
+
+* choose source root directory dialog
+* choose destination root directory dialog
+* store root directories in local storage
+* list files in source directory
+* list files in sub directories
+* check exif
+* copy files to destination/YEAR/MONTH directory or others (if no exif)
+* show 
+** scan progress
+** whole copy progress and 
+** copy progress of single file
+* check by file name
+* optionally use file changed time
+* show graphical parser order
+* allow to create regex filename parser
+* choose not classified directory (default: "others" in destination root directory)
+* choose if files are copied, moved or linked
+* parallelize list files, parse file, copy files tasks

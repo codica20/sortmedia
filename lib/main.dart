@@ -3,6 +3,7 @@ import 'package:sort_media/features/log/ui/logs_view_widget.dart';
 import 'package:sort_media/features/log/uistate/logger.dart';
 
 void main() {
+  registerLogger();
   runApp(const MyApp());
 }
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Sort Media',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -30,9 +31,11 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.greenAccent),
+        colorScheme: .fromSeed(
+          seedColor: Colors.greenAccent,
+        ),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Sort Media'),
     );
   }
 }
@@ -59,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
-    logger.log("counter: $_counter (before)");
+    log("counter: $_counter (before)");
     setState(() {
       _counter++;
     });
@@ -67,8 +70,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final double screenHeight = MediaQuery.of(context).size.height;
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final double screenHeight = MediaQuery.of(context)
+        .size
+        .height;
+    final ColorScheme colorScheme = Theme.of(context)
+        .colorScheme;
     return Scaffold(
       appBar: AppBar(
         // TRY THIS: Try changing the color here to a specific color (to
@@ -85,10 +91,14 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Center(
               child: Column(
                 children: [
-                  const Text('You have pushed the button this many times:'),
+                  const Text(
+                    'You have pushed the button this many times:',
+                  ),
                   Text(
                     '$_counter',
-                    style: Theme.of(context).textTheme.headlineMedium,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineMedium,
                   ),
                 ],
               ),

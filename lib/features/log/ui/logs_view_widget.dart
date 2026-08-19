@@ -1,53 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:sort_media/features/log/ui/log_item_widget.dart';
 import 'package:sort_media/features/log/uistate/logger.dart';
+import 'package:watch_it/watch_it.dart';
 
-class LogsViewWidget extends StatelessWidget {
+/// shows the logs, newest at the top
+class LogsViewWidget extends WatchingWidget {
   const LogsViewWidget({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ListenableBuilder(
-      listenable: logger,
-      builder: (context, child) {
-        final theme = Theme.of(context);
-        final int len = logger.logs.length;
-        final String heading = "logs ($len)";
-        return Padding(
-          padding: .all(20),
+    final logger = watchIt<Logger>();
+    final theme = Theme.of(context);
+    final int len = logger.logs.length;
+    final String heading = "logs ($len)";
+    return Padding(
+      padding: .all(20),
 
-          child: Column(
-            crossAxisAlignment: .stretch,
-            children: [
-              Container(
-                color: theme.colorScheme.primaryContainer,
-                child: Text(heading, style: theme.textTheme.headlineMedium),
-              ),
-              Expanded(child: _LogItemsWidget()),
-            ],
+      child: Column(
+        crossAxisAlignment: .stretch,
+        children: [
+          Container(
+            color: theme.colorScheme.primaryContainer,
+            child: Text(
+              heading,
+              style: theme.textTheme.headlineMedium,
+            ),
           ),
-        );
-      },
+          Expanded(child: _LogItemsWidget()),
+        ],
+      ),
     );
   }
 }
 
-class _LogItemsWidget extends StatelessWidget {
+class _LogItemsWidget extends WatchingWidget {
   @override
   Widget build(BuildContext context) {
+    final logger = watchIt<Logger>();
     final len = logger.logs.length;
-    return ListenableBuilder(
-      listenable: logger,
-      builder: (context, child) {
-        return ListView.builder(
-          itemCount: len,
-          itemBuilder: (context, index) => LogItemWidget(
-            logger.logs[len - index - 1],
-            key: Key("log-$index"),
-          ),
-        );
-      },
+    return ListView.builder(
+      itemCount: len,
+      itemBuilder: (context, index) => LogItemWidget(
+        logger.logs[len - index - 1],
+        key: Key("log-$index"),
+      ),
     );
   }
 }
