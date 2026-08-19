@@ -17,12 +17,7 @@ Features contain subfolders
 
 ## ToDo
 
-* choose source root directory dialog
-* choose destination root directory dialog
-* store root directories in local storage
-* list files in source directory
-* list files in sub directories
-* check exif
+* in choose directory dialog use old preference as default dir
 * copy files to destination/YEAR/MONTH directory or others (if no exif)
 * show 
 ** scan progress

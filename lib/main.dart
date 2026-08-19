@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sort_media/features/transfer/ui/transfer_button.dart';
 
 import 'features/analyze/ui/analyze_button.dart';
 import 'features/settings/state/settings_state.dart';
@@ -98,7 +99,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         .headlineMedium,
                   ),
                   SettingsWidget(),
-                  AnalyzeButton(),
+                  Row(
+                    mainAxisAlignment: .spaceBetween,
+                    children: [
+                      AnalyzeButton(),
+                      TransferButton(),
+                    ],
+                  ),
                 ],
               ),
             ),

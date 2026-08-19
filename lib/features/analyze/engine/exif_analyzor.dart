@@ -12,8 +12,12 @@ class ExifAnalyzor extends Analyzor {
     final fileContent = await file.readAsBytes();
     final exif = await readExifFromBytes(fileContent);
     //log("exif data: ${exif.tags}");
-    log("${exif.tags["EXIF DateTimeOriginal"]}");
-    log("${exif.tags["EXIF DateTimeDigitized"]}");
+    if (exif.tags.isEmpty) {
+      log("No EXIF in $file.");
+      return null;
+    }
+    // log("${exif.tags["EXIF DateTimeDigitized"]}");
+    // log("${exif.tags["EXIF DateTimeOriginal"]}");
     final dateTimeStr = exif.tags["EXIF DateTimeOriginal"];
     try {
       log("""${dateTimeStr?.tagType} 
