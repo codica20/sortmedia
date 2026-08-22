@@ -25,34 +25,30 @@ class HomeScreen extends StatelessWidget {
         title: Text(title),
       ),
       body: Column(
+        mainAxisAlignment: .spaceBetween,
         children: [
           Expanded(
-            child: Column(
-              children: [
-                _defaultPadding(SettingsWidget()),
-                _defaultPadding(
-                  Center(
-                    child: _defaultPadding(
-                      Row(
-                        mainAxisAlignment: .spaceBetween,
-                        children: [
-                          AnalyzeButton(),
-                          TransferButton(),
-                          IconButton(
-                            onPressed: () {
-                              Navigator.pushNamed(
-                                context,
-                                "/logs",
-                              );
-                            },
-                            icon: Icon(Icons.bug_report),
-                          ),
-                        ],
+            //  SizedBox(
+            //    height: (screenHeight * 1 / 3),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  _defaultPadding(SettingsWidget()),
+                  _defaultPadding(
+                    Center(
+                      child: _defaultPadding(
+                        Row(
+                          mainAxisAlignment: .spaceBetween,
+                          children: [
+                            AnalyzeButton(),
+                            TransferButton(),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
 
