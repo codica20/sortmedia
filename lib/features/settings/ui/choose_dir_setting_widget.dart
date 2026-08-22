@@ -17,7 +17,7 @@ class ChooseDirSettingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return Container(
       padding: .all(20),
       margin: .directional(bottom: 20),
       decoration: BoxDecoration(
@@ -29,9 +29,11 @@ class ChooseDirSettingWidget extends StatelessWidget {
       child: Wrap(
         direction: .horizontal,
         alignment: .spaceBetween,
-        runAlignment: .spaceBetween,
+        crossAxisAlignment: .center,
         children: [
-          SelectableText("$dirName: ${dir ?? "nicht gesetzt"}"),
+          SelectableText(
+            "$dirName: ${dir ?? "nicht gesetzt"}",
+          ),
 
           Row(
             mainAxisSize: .min,
@@ -47,7 +49,7 @@ class ChooseDirSettingWidget extends StatelessWidget {
                     setDir(location);
                   }
                 },
-                child: Text("Wähle $dirName",),
+                child: Text("Wähle $dirName"),
               ),
               IconButton(
                 onPressed: () {
