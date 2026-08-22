@@ -42,7 +42,6 @@ class ExifAnalyzor extends Analyzor {
 DateTime _dateTimeDigitized2dartDateTime(ExifData exif) {
   final dateTimeStr = exif.tags["EXIF DateTimeOriginal"]
       .toString();
-  log("6: |${dateTimeStr[7]}|");
   if (dateTimeStr[4].compareTo(':') != 0 ||
       dateTimeStr[7].compareTo(':') != 0) {
     throw FormatException(

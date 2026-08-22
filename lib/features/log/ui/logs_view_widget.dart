@@ -13,22 +13,25 @@ class LogsViewWidget extends WatchingWidget {
     final theme = Theme.of(context);
     final int len = logger.logs.length;
     final String heading = "logs ($len)";
-    return Padding(
-      padding: .all(20),
-
-      child: Column(
-        crossAxisAlignment: .stretch,
-        children: [
-          Container(
-            color: theme.colorScheme.primaryContainer,
-            child: Text(
-              heading,
-              style: theme.textTheme.headlineMedium,
+    return Column(
+      crossAxisAlignment: .stretch,
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10),
             ),
+
+            color: theme.colorScheme.primaryContainer,
           ),
-          Expanded(child: _LogItemsWidget()),
-        ],
-      ),
+          padding: .all(10),
+          child: Text(
+            heading,
+            style: theme.textTheme.titleMedium,
+          ),
+        ),
+        Expanded(child: _LogItemsWidget()),
+      ],
     );
   }
 }

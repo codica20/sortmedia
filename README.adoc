@@ -2,6 +2,18 @@
 
 This linux app should sort media to folders in Year/Month structure.
 
+## Usage
+
+For development run
+```bash
+  flutter run
+```  
+
+To build
+```bash
+  flutter build linux
+```  
+
 ## Development
 
 ### Architecture
@@ -18,15 +30,20 @@ Features contain subfolders
 ## ToDo
 
 * in choose directory dialog use old preference as default dir
-* copy files to destination/YEAR/MONTH directory or others (if no exif)
+* align preferences dialog
 * show 
+* clean logs
 ** scan progress
 ** whole copy progress and 
 ** copy progress of single file
 * check by file name
 * optionally use file changed time
-* show graphical parser order
+* show parser order
+* create extra tab for extended logs
+* On main page, make size of logs settable
+* create button to show directories in system folder explorer
 * allow to create regex filename parser
 * choose not classified directory (default: "others" in destination root directory)
 * choose if files are copied, moved or linked
 * parallelize list files, parse file, copy files tasks
+* provide white list of files to be analyzed or a black list or both

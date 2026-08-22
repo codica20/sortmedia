@@ -1,11 +1,21 @@
 import 'dart:io';
 
+import 'regex_analyzor.dart';
+
 import 'analyzor.dart';
 import 'exif_analyzor.dart';
 
 import '../../log/uistate/logger.dart';
 
-final analyzors = [ExifAnalyzor()];
+final analyzors = [
+  ExifAnalyzor(),
+  RegExAnalyzor(
+    regex: RegExp(
+      r"(?<year>\d\d\d\d)(?<month>\d\d)(?<day>\d\d)_(?<hour>\d\d)(?<minute>\d\d)(?<second>\d\d)",
+    ),
+    analyzorName: "MP4-DefaultFileName",
+  ),
+];
 
 class AnalyzeDirData {
   AnalyzeDirData(this.recognized, this.notRecognized);
@@ -13,24 +23,31 @@ class AnalyzeDirData {
   List<String> notRecognized;
 }
 
+/// recursively analyzes the files in this directory
+/// 
 Future<AnalyzeDirData> analyzeDir(String path) async {
   List<AnalyzeData> recognized = [];
   List<String> notRecognized = [];
   final dir = Directory(path);
   log("Analysiere Verzeichnis $dir ...");
   final files = dir.list(recursive: true);
+
   await for (var entity in files) {
-    final fileData = await analyzeFile(entity);
-    if (fileData != null) {
-      recognized.add(fileData);
+    if (entity is File) {
+      final fileData = await _analyzeFile(entity);
+      if (fileData != null) {
+        recognized.add(fileData);
+      } else {
+        notRecognized.add(entity.path);
+      }
     } else {
-      notRecognized.add(entity.path);
+      log("$entity is not a File.");
     }
   }
   return AnalyzeDirData(recognized, notRecognized);
 }
 
-Future<AnalyzeData?> analyzeFile(
+Future<AnalyzeData?> _analyzeFile(
   FileSystemEntity entity,
 ) async {
   log("Analyzing file $entity ...");

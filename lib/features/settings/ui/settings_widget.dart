@@ -11,6 +11,7 @@ class SettingsWidget extends WatchingWidget {
   Widget build(BuildContext context) {
     final settingsState = watchIt<SettingsState>();
     return Column(
+      crossAxisAlignment: .stretch,
       children: [
         ChooseDirSettingWidget(
           dirName: "Quellverzeichnis",

@@ -17,29 +17,49 @@ class ChooseDirSettingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: .spaceBetween,
-      children: [
-        Text("$dirName: ${dir ?? "nicht gesetzt"}"),
-        ElevatedButton(
-          onPressed: () async {
-            final String? location =
-                await FilePicker.getDirectoryPath();
-            log('Picked: $location');
-            if (location != null) {
-              setDir(location);
-            }
-          },
-          child: Text("Wähle $dirName"),
-        ),
-        IconButton(
-          onPressed: () {
-            log("$dirName entfernt.");
-            setDir(null);
-          },
-          icon: const Icon(Icons.delete),
-        ),
-      ],
+    return  Container(
+      padding: .all(20),
+      margin: .directional(bottom: 20),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Theme.of(context)
+            .colorScheme
+            .secondaryContainer,
+      ),
+      child: Wrap(
+        direction: .horizontal,
+        alignment: .spaceBetween,
+        runAlignment: .spaceBetween,
+        children: [
+          SelectableText("$dirName: ${dir ?? "nicht gesetzt"}"),
+
+          Row(
+            mainAxisSize: .min,
+            children: [
+              ElevatedButton(
+                onPressed: () async {
+                  final String? location =
+                      await FilePicker.getDirectoryPath(
+                        initialDirectory: dir,
+                      );
+                  log('Picked: $location');
+                  if (location != null) {
+                    setDir(location);
+                  }
+                },
+                child: Text("Wähle $dirName",),
+              ),
+              IconButton(
+                onPressed: () {
+                  log("$dirName entfernt.");
+                  setDir(null);
+                },
+                icon: const Icon(Icons.delete),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
