@@ -1,9 +1,12 @@
-# sort_media
+# sortmedia
+
+:toc:
+:toclevels: 5
 
 This linux desktop app sorts media to folders in Year/Month structure.
 It skips files that are already in destination folder.
 
-It doe
+I've created it for my personal use only. Perhaps, it is also useful for others. However, I take **no responsibility** for damages whatsoever.
 
 ## Usage
 
@@ -17,21 +20,70 @@ To build
   flutter build linux
 ```  
 
+On Debian/Ubuntu/Linux Mint, you can install the `.deb`-package in
+`dist/${VERSION}/sortmedia-${VERSION}-linux.deb`.
+
 ## Development
 
 ### Architecture
 
-#### Features
+#### Organization of Features
 
-Features contain subfolders
+lib/src/features contain subfolders
 
 * ui
 * uistate - state that contains code related to widgets
 * state - pure state
 * data - logic to calculate, fetch or combine data needed for state
 
+### Checklist for Some Changes
+
+#### Version Bump
+
+For version bumps, you have to update
+
+* pubspec.yaml
+* linux/packaging/deb/make_config.yaml
+* lib/features/home/ui/sm_scaffold.dart
+
+#### New Screen
+
+* Create the new screen in `lib/features/*/ui/`
+* Append it to `navDests` in link:lib/features/navigation/uistate/current_screen_model.dart[] 
+* Append the routes in link:lib/main.dart[]
+
+### Deployment for Debian
+
+To create the .deb file, you have to know the dependencies. It helps to run 
+
+```bash
+  flutter build
+  objdump -p build/linux/x64/release/bundle/sortmedia \
+    | grep NEEDED  | cut --delim  ' ' --fields 18 \
+    | xargs -n1 dpkg -S | grep -v :i386: | grep -v libflutter_linux_gtk.so
+```
+
+It shows the required packages. Those package have to inserted into 
+the `dependencies:` section of link:linux/packaging/deb/make_config.yaml[].
+
+The required tool fastforge has to be installed:
+
+```bash
+  dart pub global activate fastforge
+```
+
+Run it but check correct umask:
+```bash
+umask 0002
+fastforge package --platform linux --targets deb
+```
+
+
 ## ToDo
 
+* Refactor: Base log- and home screen on SmScaffold
+* Make it deployable as as .deb package
+** append dependencies
 * show processed files with filters
 * clean logs
 ** scan progress

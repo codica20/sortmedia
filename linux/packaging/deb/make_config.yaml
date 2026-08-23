@@ -1,0 +1,38 @@
+display_name: Sort Media
+package_name: sortmedia
+maintainer:
+  name: codica
+  email: codica@arcor.de
+priority: optional
+section: x11
+dependencies: 
+  - libgtk-3-0t64
+  - lib32z1
+  - zlib1g
+  - libpangocairo-1.0-0
+
+installed_size: 30000
+essential: false
+icon: assets/logo.png
+
+postinstall_scripts:
+  - echo "Installed sortmedia"
+postuninstall_scripts:
+  - echo "Bye!"
+
+keywords:
+  - sort
+  - media
+  - image
+  - folder
+  - exif
+
+generic_name: Sort Media
+
+categories:
+  - Media
+
+startup_notify: true
+# You can also specify [metainfo](https://freedesktop.org/software/appstream/docs/chap-Quickstart.html) file
+# which contains metadata of the app.
+# metainfo: linux/packaging/myappid.appdata.xml
