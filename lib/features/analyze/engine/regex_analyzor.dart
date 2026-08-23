@@ -15,8 +15,11 @@ import 'analyzor.dart';
 /// second.
 /// Example for a regex: RegExp(r`^(?<year>\d\d\d\d)(?<month>\d\d)(?<day>\d\d)_(?<hour>\d\d)(?<minute>\d\d)(?<second>\d\d).jpg$`)
 class RegExAnalyzor extends Analyzor {
-  RegExAnalyzor({required this.regex, String? analyzorName }) {
-    _name=analyzorName;
+  RegExAnalyzor({
+    required this.regex,
+    String? analyzorName,
+  }) {
+    _name = analyzorName;
   }
 
   final RegExp regex;
@@ -71,16 +74,14 @@ class RegExAnalyzor extends Analyzor {
         file.path,
         shotTime,
       ); // success
-
     } catch (e) {
       log("RegEx $regex could not be applied to $file: $e");
       return null;
     }
-
   }
 
   @override
-  String get name => _name ?? "RegexAnalyzor";
+  String get name => _name ?? "Regex: $regex";
 }
 
 /// throws an error, if group is not available

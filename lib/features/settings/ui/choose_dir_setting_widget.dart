@@ -1,6 +1,8 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
+import '../../home/ui/sm_scaffold.dart';
+
 import '../../../features/log/uistate/logger.dart';
 
 class ChooseDirSettingWidget extends StatelessWidget {
@@ -21,7 +23,7 @@ class ChooseDirSettingWidget extends StatelessWidget {
       padding: .all(20),
       margin: .directional(bottom: 20),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: defaultBorderRadius(),
         color: Theme.of(context)
             .colorScheme
             .secondaryContainer,

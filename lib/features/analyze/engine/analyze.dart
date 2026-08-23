@@ -7,13 +7,13 @@ import 'exif_analyzor.dart';
 
 import '../../log/uistate/logger.dart';
 
-final analyzors = [
+final List<Analyzor> analyzors = [
   ExifAnalyzor(),
   RegExAnalyzor(
     regex: RegExp(
       r"(?<year>\d\d\d\d)(?<month>\d\d)(?<day>\d\d)_(?<hour>\d\d)(?<minute>\d\d)(?<second>\d\d)",
     ),
-    analyzorName: "MP4-DefaultFileName",
+    //analyzorName: "MP4-DefaultFileName",
   ),
 ];
 
@@ -24,7 +24,7 @@ class AnalyzeDirData {
 }
 
 /// recursively analyzes the files in this directory
-/// 
+///
 Future<AnalyzeDirData> analyzeDir(String path) async {
   List<AnalyzeData> recognized = [];
   List<String> notRecognized = [];

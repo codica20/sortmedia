@@ -1,6 +1,9 @@
 # sort_media
 
-This linux app should sort media to folders in Year/Month structure.
+This linux desktop app sorts media to folders in Year/Month structure.
+It skips files that are already in destination folder.
+
+It doe
 
 ## Usage
 
@@ -29,21 +32,19 @@ Features contain subfolders
 
 ## ToDo
 
-* in choose directory dialog use old preference as default dir
-* align preferences dialog
-* show 
+* show processed files with filters
 * clean logs
 ** scan progress
 ** whole copy progress and 
 ** copy progress of single file
-* check by file name
 * optionally use file changed time
-* show parser order
 * create extra tab for extended logs
 * On main page, make size of logs settable
+* translation to english
 * create button to show directories in system folder explorer
 * allow to create regex filename parser
 * choose not classified directory (default: "others" in destination root directory)
 * choose if files are copied, moved or linked
+* abort button
 * parallelize list files, parse file, copy files tasks
 * provide white list of files to be analyzed or a black list or both

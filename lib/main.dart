@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sort_media/features/config/ui/config_screen.dart';
+
 import 'features/home/ui/home_screen.dart';
 import 'features/log/ui/logs_screen.dart';
 import 'features/navigation/uistate/current_screen_model.dart';
@@ -29,6 +31,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) =>
             const HomeScreen(title: 'Sort Media'),
+        "/config": (context) => const ConfigScreen(),
         "/logs": (context) => const LogsScreen(),
       },
     );

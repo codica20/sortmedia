@@ -6,6 +6,7 @@ import '../../analyze/ui/analyze_button.dart';
 import '../../log/ui/logs_view_widget.dart';
 import '../../settings/ui/settings_widget.dart';
 import '../../transfer/ui/transfer_button.dart';
+import 'sm_scaffold.dart' show defaultPadding;
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key, required this.title});
@@ -33,10 +34,10 @@ class HomeScreen extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  _defaultPadding(SettingsWidget()),
-                  _defaultPadding(
+                  defaultPadding(SettingsWidget()),
+                  defaultPadding(
                     Center(
-                      child: _defaultPadding(
+                      child: defaultPadding(
                         Row(
                           mainAxisAlignment: .spaceBetween,
                           children: [
@@ -72,6 +73,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-Padding _defaultPadding(Widget w) =>
-    Padding(padding: .all(20), child: w);
