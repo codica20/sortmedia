@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sort_media/features/transfer/engine/transfer.dart';
+
+import '../engine/transfer.dart';
+
 import 'package:watch_it/watch_it.dart';
 
 import '../../show_message/ui/show_message.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sort_media/features/log/ui/log_item_widget.dart';
-import 'package:sort_media/features/log/uistate/logger.dart';
+import 'log_item_widget.dart';
+import '../uistate/logger.dart';
 import 'package:watch_it/watch_it.dart';
 
 /// shows the logs, newest at the top

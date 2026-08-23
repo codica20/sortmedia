@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sort_media/features/show_message/ui/show_message.dart';
+import '../../show_message/ui/show_message.dart';
 
 import '../engine/analyze.dart';
 import '../../settings/state/settings_state.dart';

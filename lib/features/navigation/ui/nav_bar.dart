@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sort_media/features/navigation/uistate/current_screen_model.dart';
+import '../uistate/current_screen_model.dart';
 import 'package:watch_it/watch_it.dart';
 
 class NavBar extends WatchingWidget {

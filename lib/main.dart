@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sort_media/features/config/ui/config_screen.dart';
+import 'features/config/ui/config_screen.dart';
 
 import 'features/home/ui/home_screen.dart';
 import 'features/log/ui/logs_screen.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sort_media/features/home/ui/sm_scaffold.dart';
+import '../../home/ui/sm_scaffold.dart';
 
 import '../../analyze/engine/analyze.dart';
 
