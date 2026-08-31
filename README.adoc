@@ -1,5 +1,4 @@
 # sortmedia
-
 :toc:
 :toclevels: 5
 
@@ -20,7 +19,7 @@ To build
   flutter build linux
 ```  
 
-On Debian/Ubuntu/Linux Mint, you can install the `.deb`-package in
+After build and packaging (see below), on Debian/Ubuntu/Linux Mint, you can install the `.deb`-package in
 `dist/${VERSION}/sortmedia-${VERSION}-linux.deb`.
 
 ## Development
