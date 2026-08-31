@@ -79,7 +79,7 @@ class TransferButton extends WatchingWidget {
           }
         }
       },
-      child: Text("Kopieren!"),
+      child: Text("Kopieren"),
     );
   }
 }

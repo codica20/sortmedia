@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../show_message/ui/show_message.dart';
-
-import '../engine/analyze.dart';
-import '../../settings/state/settings_state.dart';
-
 import 'package:watch_it/watch_it.dart';
 
+import '../../show_message/ui/show_message.dart';
+import '../engine/analyze.dart';
+import '../../settings/state/settings_state.dart';
 import '../../log/uistate/logger.dart' show log;
 
 class AnalyzeButton extends WatchingWidget {
@@ -13,7 +11,7 @@ class AnalyzeButton extends WatchingWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FilledButton(
+    return OutlinedButton(
       onPressed: () async {
         log("Analysiere ${settingsState.srcDir} ...");
         final String? srcDir = settingsState.srcDir;

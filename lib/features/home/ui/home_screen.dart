@@ -36,16 +36,12 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   defaultPadding(SettingsWidget()),
                   defaultPadding(
-                    Center(
-                      child: defaultPadding(
-                        Row(
-                          mainAxisAlignment: .spaceBetween,
-                          children: [
-                            AnalyzeButton(),
-                            TransferButton(),
-                          ],
-                        ),
-                      ),
+                    Row(
+                      mainAxisAlignment: .spaceBetween,
+                      children: [
+                        AnalyzeButton(),
+                        TransferButton(),
+                      ],
                     ),
                   ),
                 ],

@@ -19,7 +19,7 @@ To build
   flutter build linux
 ```  
 
-After build and packaging (see below), on Debian/Ubuntu/Linux Mint, you can install the `.deb`-package in
+After build and packaging (see <<Deployment for Debian, below>>), on Debian/Ubuntu/Linux Mint, you can install the `.deb`-package in
 `dist/${VERSION}/sortmedia-${VERSION}-linux.deb`.
 
 ## Development
@@ -42,7 +42,6 @@ lib/src/features contain subfolders
 For version bumps, you have to update
 
 * pubspec.yaml
-* linux/packaging/deb/make_config.yaml
 * lib/features/home/ui/sm_scaffold.dart
 
 #### New Screen
