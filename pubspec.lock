@@ -5,10 +5,10 @@ packages:
     dependency: transitive
     description:
       name: android_file_picker
-      sha256: "665a5a57dfca27f91a715d300e4852a784f9f98e503dcff281bec9afb55767be"
+      sha256: "1f111ed6bb33724ba782cc86357e3fd97f57051d55fc61adf33dcfc5049a1581"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.3"
   args:
     dependency: transitive
     description:
@@ -53,10 +53,10 @@ packages:
     dependency: transitive
     description:
       name: clock
-      sha256: fddb70d9b5277016c77a80201021d40a2247104d9f4aa7bab7157b7e3f05b84b
+      sha256: e51d50bca3217c9a9fa2b41a30e4a38971133f5f9ec7a3d57bae095007f1d28e
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.2"
+    version: "1.1.3"
   collection:
     dependency: transitive
     description:
@@ -69,10 +69,10 @@ packages:
     dependency: transitive
     description:
       name: cross_file
-      sha256: "92c9c43c383bfa1c32079d3bc492d55d6d4318044b7b47edaff8971cbb555c51"
+      sha256: f141ea4f277af142a0356955707f6556f37b03947d39d55585981a06ca437bd6
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.5+4"
+    version: "0.3.5+5"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -93,10 +93,10 @@ packages:
     dependency: "direct main"
     description:
       name: exif_reader
-      sha256: "8491a1733f31b5b0c49d05e3fd2690538f1906b52f156d9d1fe7fad9d76bcced"
+      sha256: bdb0f14e6550eea85059513354e7feda2267ba3a0e108356aa283a71038ac535
       url: "https://pub.dev"
     source: hosted
-    version: "4.1.0"
+    version: "4.2.0"
   fake_async:
     dependency: transitive
     description:
@@ -133,42 +133,42 @@ packages:
     dependency: "direct main"
     description:
       name: file_picker
-      sha256: afbaa8015d9efabd224f41084ed9fdeddfa65389ebd7cd3a9eb1476aca66b46d
+      sha256: b7acb5d123cb398f6b4a8a38e43777545254f8fc1fabef3ee11cbbb56aece9c8
       url: "https://pub.dev"
     source: hosted
-    version: "12.0.0"
+    version: "12.1.2"
   file_picker_darwin:
     dependency: transitive
     description:
       name: file_picker_darwin
-      sha256: "5d87d156c1d63920447a662b7117d3498c67e3444a44d2cb01ed955d6efa62ef"
+      sha256: "6e7cae501d48fd57a27911608db718ebd898e6ccf934bf09e33a8c0d0365bec0"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.4"
   file_picker_linux:
     dependency: transitive
     description:
       name: file_picker_linux
-      sha256: "93d3f62f97c657053e7b184fe0f5e22347d85067c053640a30b1ac8ad7844e3b"
+      sha256: f0f01ed42967b7355f6f25c8b121ea531d1948e2a9b4b44f4b4de8489d7b04ae
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.2"
   file_picker_platform_interface:
     dependency: transitive
     description:
       name: file_picker_platform_interface
-      sha256: "9e7a7e01e179929241f0afeb2c8c69ac95e29e17c0abea36ed193881c6bef90c"
+      sha256: "11ef1b5c14d9186b4788cc273dd8d5cb81bca847145060991a28234ff7916fc1"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.1"
+    version: "3.2.0"
   file_picker_web:
     dependency: transitive
     description:
       name: file_picker_web
-      sha256: f1af38b3c91fafe0ca97f659b5c6818a057473ef09bb8b722f9f3f5364aa7eed
+      sha256: df472142f63c4557fdfbb375c81454ca1c251491069eefcdc6a866bc12f8750b
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.1"
+    version: "3.0.3"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -204,10 +204,10 @@ packages:
     dependency: transitive
     description:
       name: iso_base_media
-      sha256: "7716f5c57d342e50673cd5b8eaca3e7f7c624145c637602fbe564b8396d50a85"
+      sha256: "7dd7f4086f6eae69c3c18c7621f4b4ec943fb4ec97cfd346b3866e2dd447957c"
       url: "https://pub.dev"
     source: hosted
-    version: "6.3.2"
+    version: "6.3.3"
   jpeg_markers:
     dependency: transitive
     description:
@@ -340,10 +340,10 @@ packages:
     dependency: transitive
     description:
       name: random_access_source
-      sha256: "2cb3578e3027d6f7e44a66ec9bf72f5e0b73e9c0e62f4768977a0ed962d08be7"
+      sha256: "0d33a16014f72da17adfb44fdafe8976b45d51a22a192d2fe832d1c1da2bee34"
       url: "https://pub.dev"
     source: hosted
-    version: "4.2.1"
+    version: "4.3.1"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -356,18 +356,18 @@ packages:
     dependency: transitive
     description:
       name: shared_preferences_android
-      sha256: "0634e64bd719f89c012f392938e173521f535d3ecaf66558fa94a056d22b5cc7"
+      sha256: "1e12aafe408aa50da80edfd679a2a6bf63ba7ab37c7fa98286da459a757b3399"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.27"
+    version: "2.4.28"
   shared_preferences_foundation:
     dependency: transitive
     description:
       name: shared_preferences_foundation
-      sha256: "4e7eaffc2b17ba398759f1151415869a34771ba11ebbccd1b0145472a619a64f"
+      sha256: "2ec3934efa51e46117f23031cc141b8fc878e8525b94ec1ea4f7f586cf1b47ea"
       url: "https://pub.dev"
     source: hosted
-    version: "2.5.6"
+    version: "2.5.7"
   shared_preferences_linux:
     dependency: transitive
     description:
@@ -425,10 +425,10 @@ packages:
     dependency: transitive
     description:
       name: stack_trace
-      sha256: "8b27215b45d22309b5cddda1aa2b19bdfec9df0e765f2de506401c071d38d1b1"
+      sha256: "277654b3034d17ac6f9f1cb5595db011b1d5d41e8806866db28e0abaa101c490"
       url: "https://pub.dev"
     source: hosted
-    version: "1.12.1"
+    version: "1.12.2"
   stream_channel:
     dependency: transitive
     description:
@@ -505,10 +505,10 @@ packages:
     dependency: transitive
     description:
       name: windows_file_picker
-      sha256: "72cf23466e146f2c0f19e1d78be97ff6409dc15b0c090f8eb284f94f4a33de26"
+      sha256: "225f58e64c15c2d7b34fb8faf3ca188831967f26b5a723d7c3a7969e41c9b5a5"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.1"
+    version: "1.1.0"
   xdg_directories:
     dependency: transitive
     description:
