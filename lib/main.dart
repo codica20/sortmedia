@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sortmedia/features/analyze/uistate/analyzor_list.dart';
+
 import 'features/config/ui/config_screen.dart';
 
 import 'features/home/ui/home_screen.dart';
@@ -12,6 +14,7 @@ void main() {
   registerLogger();
   registerSettingsState();
   registerCurrentScreenModel();
+  registerAnalyzorList();
   runApp(const MyApp());
 }
 

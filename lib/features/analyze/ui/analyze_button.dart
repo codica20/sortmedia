@@ -5,19 +5,24 @@ import '../../show_message/ui/show_message.dart';
 import '../engine/analyze.dart';
 import '../../settings/state/settings_state.dart';
 import '../../log/uistate/logger.dart' show log;
+import '../uistate/analyzor_list.dart' show AnalyzorList;
 
 class AnalyzeButton extends WatchingWidget {
   const AnalyzeButton({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final analyzors = watchIt<AnalyzorList>().analyzors;
     return OutlinedButton(
       onPressed: () async {
         log("Analysiere ${settingsState.srcDir} ...");
         final String? srcDir = settingsState.srcDir;
         if (srcDir != null) {
           try {
-            final dirData = await analyzeDir(srcDir);
+            final dirData = await analyzeDir(
+              analyzors,
+              srcDir,
+            );
 
             for (var data in dirData.recognized) {
               log("rcgnzd: $data");

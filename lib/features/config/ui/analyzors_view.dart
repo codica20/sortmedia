@@ -1,28 +1,23 @@
 import 'package:flutter/material.dart';
-import '../../home/ui/sm_scaffold.dart';
+import 'package:sortmedia/features/config/ui/analyzor_widget.dart';
+import 'package:watch_it/watch_it.dart';
 
-import '../../analyze/engine/analyze.dart';
+import '../../analyze/uistate/analyzor_list.dart'
+    show AnalyzorList;
 
-class AnalyzorsView extends StatelessWidget {
+class AnalyzorsView extends WatchingWidget {
   const AnalyzorsView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final anlyzrs = analyzors;
+    final anlyzrs = watchIt<AnalyzorList>().analyzors;
     return ListView.builder(
       itemCount: anlyzrs.length,
 
-      itemBuilder: (context, index) => ListTile(
-        title: Container(
-          decoration: BoxDecoration(
-            color: Theme.of(context)
-                .colorScheme
-                .secondaryContainer,
-            borderRadius: defaultBorderRadius(),
-          ),
-          child: defaultPadding(Text(anlyzrs[index].name)),
-        ),
-      ),
+      itemBuilder: (context, index) {
+        final analyzor = anlyzrs[index];
+        return AnalyzorWidget(analyzor: analyzor);
+      },
     );
   }
 }

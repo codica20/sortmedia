@@ -5,6 +5,9 @@ abstract class Analyzor {
   /// name of the analyzor
   String get name;
 
+  /// set false to disable Analyzor
+  bool enabled = true;
+
   /// If analyzor succeds, it returns analyzed data
   Future<AnalyzeData?> analyzeFile(File file);
 }

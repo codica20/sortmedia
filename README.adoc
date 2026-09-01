@@ -3,9 +3,16 @@
 :toclevels: 5
 
 This linux desktop app sorts media to folders in Year/Month structure.
-It skips files that are already in destination folder.
+It skips files that are already in destination folder. 
+It uses "analyzors" to get the relevant date from a media file. Currently, there are two analyzors:
 
-I've created it for my personal use only. Perhaps, it is also useful for others. However, I take **no responsibility** for damages whatsoever.
+* an EXIF-Analyzor, which gets the EXIF shottime, and
+* an RegExp-Analyzor, which currently is hardcoded to a YYYYMMDD_HHmmSS pattern.
+
+If the analyzors failed to get a relevant date for a file, such file is copied to a folder for unclassified files.
+
+[WARNING]
+I've created sortmedia for my personal use only. Perhaps, it is also useful for others. However, I take **no responsibility** for damages whatsoever.
 
 ## Usage
 
@@ -80,8 +87,10 @@ fastforge package --platform linux --targets deb
 ## ToDo
 
 * Refactor: Base log- and home screen on SmScaffold
+* translation to english
 * Make it deployable as as .deb package
-** append dependencies
+** uninstall bug: why does aptitude complain about non-empty /opt folder?
+* screenshot in README
 * show processed files with filters
 * clean logs
 ** scan progress
@@ -90,7 +99,6 @@ fastforge package --platform linux --targets deb
 * optionally use file changed time
 * create extra tab for extended logs
 * On main page, make size of logs settable
-* translation to english
 * create button to show directories in system folder explorer
 * allow to create regex filename parser
 * choose not classified directory (default: "others" in destination root directory)
