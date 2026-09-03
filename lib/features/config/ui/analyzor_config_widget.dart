@@ -4,9 +4,12 @@ import 'package:sortmedia/features/analyze/engine/analyzor.dart';
 import '../../home/ui/sm_scaffold.dart'
     show defaultBorderRadius, defaultPadding;
 
-class AnalyzorWidget extends StatelessWidget {
+class AnalyzorConfigWidget extends StatelessWidget {
   final Analyzor analyzor;
-  const AnalyzorWidget({super.key, required this.analyzor});
+  const AnalyzorConfigWidget({
+    super.key,
+    required this.analyzor,
+  });
 
   @override
   Widget build(BuildContext context) {

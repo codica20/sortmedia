@@ -57,6 +57,13 @@ For version bumps, you have to update
 * Append it to `navDests` in link:lib/features/navigation/uistate/current_screen_model.dart[] 
 * Append the routes in link:lib/main.dart[]
 
+#### New Analyzor
+
+* Create new Analyzor in link:lib/features/analyze/engine[]
+* Add new Analyzor to list in link:lib/features/analyze/uistate/analyzor_list.dart[]
+* If necessary, create new AnalyzorConfigWidget in link:lib/features/config/ui[]
+* If necessary, add new AnalyzorConfigWidget to link:lib/features/config/ui/analyzor_config_widget_factory.dart[]
+
 ### Deployment for Debian
 
 To create the .deb file, you have to know the dependencies. It helps to run 

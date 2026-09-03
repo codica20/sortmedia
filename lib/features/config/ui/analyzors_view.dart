@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sortmedia/features/config/ui/analyzor_widget.dart';
 import 'package:watch_it/watch_it.dart';
 
+import 'analyzor_config_widget_factory.dart';
 import '../../analyze/uistate/analyzor_list.dart'
     show AnalyzorList;
 
@@ -15,8 +15,9 @@ class AnalyzorsView extends WatchingWidget {
       itemCount: anlyzrs.length,
 
       itemBuilder: (context, index) {
-        final analyzor = anlyzrs[index];
-        return AnalyzorWidget(analyzor: analyzor);
+        return AnalyzorConfigWidgetFactory.createAnalyzorConfigWidget(
+          index,
+        );
       },
     );
   }
