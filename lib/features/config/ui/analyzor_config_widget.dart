@@ -6,23 +6,42 @@ import '../../home/ui/sm_scaffold.dart'
 
 class AnalyzorConfigWidget extends StatelessWidget {
   final Analyzor analyzor;
+  final void Function(bool enabled) setEnabled;
+
   const AnalyzorConfigWidget({
     super.key,
     required this.analyzor,
+    required this.setEnabled,
   });
+
+  @protected
+  Widget buildTitle(BuildContext context) => Container(
+    decoration: BoxDecoration(
+      color: Theme.of(context)
+          .colorScheme
+          .secondaryContainer,
+      borderRadius: defaultBorderRadius(),
+    ),
+    child: defaultPadding(Text(analyzor.name)),
+  );
+
+  @protected
+  Widget? buildSubtitle(BuildContext context) => null;
+
+  @protected
+  Widget? buildLeading(BuildContext context) => Checkbox(
+    value: analyzor.enabled,
+    onChanged: (newValue) {
+      setEnabled(newValue ?? false);
+    },
+  );
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Container(
-        decoration: BoxDecoration(
-          color: Theme.of(context)
-              .colorScheme
-              .secondaryContainer,
-          borderRadius: defaultBorderRadius(),
-        ),
-        child: defaultPadding(Text(analyzor.name)),
-      ),
+      leading: buildLeading(context),
+      title: buildTitle(context),
+      subtitle: buildSubtitle(context),
     );
   }
 }

@@ -14,33 +14,33 @@ class RegexAnalyzorConfigWidget
   const RegexAnalyzorConfigWidget({
     super.key,
     required this.analyzor,
+    required super.setEnabled
   }) : super(analyzor: analyzor);
 
+  @protected
   @override
-  Widget build(BuildContext context) {
+  Widget buildTitle(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    return ListTile(
-      title: Container(
-        decoration: BoxDecoration(
-          color: Theme.of(context)
-              .colorScheme
-              .secondaryContainer,
-          borderRadius: defaultBorderRadius(),
-        ),
-        child: defaultPadding(
-          Wrap(
-            crossAxisAlignment: .center,
-            children: [
-              Text(
-                "Regulärer Ausdruck:",
-                style: textTheme.labelMedium,
-              ),
-              Text(
-                "${analyzor.regex}",
-                style: textTheme.bodyMedium,
-              ),
-            ],
-          ),
+    return Container(
+      decoration: BoxDecoration(
+        color: Theme.of(context)
+            .colorScheme
+            .secondaryContainer,
+        borderRadius: defaultBorderRadius(),
+      ),
+      child: defaultPadding(
+        Wrap(
+          crossAxisAlignment: .center,
+          children: [
+            Text(
+              "Regulärer Ausdruck:",
+              style: textTheme.labelMedium,
+            ),
+            Text(
+              "${analyzor.regex}",
+              style: textTheme.bodyMedium,
+            ),
+          ],
         ),
       ),
     );

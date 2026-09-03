@@ -17,6 +17,14 @@ class AnalyzorList extends ChangeNotifier {
   ];
 
   List<Analyzor> get analyzors => _analyzors;
+  void enableAnalyzor({
+    required int analyzorNr,
+    bool enabled = false,
+  }) {
+    final analyzor = analyzors[analyzorNr];
+    analyzor.enabled = enabled;
+    notifyListeners();
+  }
 }
 
 /// should be called in main()

@@ -14,14 +14,24 @@ class AnalyzorConfigWidgetFactory {
   static Widget createAnalyzorConfigWidget(
     int analyzorListNumber,
   ) {
-    final Analyzor analyzor = GetIt.instance<AnalyzorList>()
-        .analyzors[analyzorListNumber];
+    final analyzorList = GetIt.instance<AnalyzorList>();
+    final analyzor =
+        analyzorList.analyzors[analyzorListNumber];
+    void setEnabled(enabled) {
+      analyzorList.enableAnalyzor(
+        analyzorNr: analyzorListNumber,
+        enabled: enabled,
+      );
+    }
+
     return switch (analyzor) {
       RegExAnalyzor() => RegexAnalyzorConfigWidget(
         analyzor: analyzor,
+        setEnabled: setEnabled,
       ),
       Analyzor() => AnalyzorConfigWidget(
         analyzor: analyzor,
+        setEnabled: setEnabled,
       ),
     };
   }
