@@ -1,6 +1,6 @@
 import 'package:dart_mappable/dart_mappable.dart'
     show MapperContainer;
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:sortmedia/features/analyze/engine/exif_analyzor.dart';
 import 'package:sortmedia/features/analyze/engine/regex_analyzor.dart';
 

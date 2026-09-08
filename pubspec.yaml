@@ -42,6 +42,7 @@ dependencies:
   path: ^1.9.1
   exif_reader: ^4.1.0
   dart_mappable: ^4.8.0
+  material_ui: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

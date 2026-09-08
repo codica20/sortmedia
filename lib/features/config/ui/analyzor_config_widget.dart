@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:sortmedia/features/analyze/engine/analyzor.dart';
 
 import '../../home/ui/sm_scaffold.dart'

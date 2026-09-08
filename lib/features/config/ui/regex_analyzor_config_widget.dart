@@ -1,9 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:sortmedia/features/config/ui/analyzor_config_widget.dart';
 
 import '../../analyze/engine/regex_analyzor.dart';
-
-import '../../home/ui/sm_scaffold.dart' show defaultPadding;
 
 class RegexAnalyzorConfigWidget
     extends AnalyzorConfigWidget {
