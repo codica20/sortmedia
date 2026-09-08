@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sortmedia/features/analyze/engine/analyzor.dart';
 
 import '../../home/ui/sm_scaffold.dart'
-    show defaultBorderRadius, defaultPadding;
+    show defaultBorderRadius;
 
 class AnalyzorConfigWidget extends StatelessWidget {
   final Analyzor analyzor;
@@ -15,15 +15,8 @@ class AnalyzorConfigWidget extends StatelessWidget {
   });
 
   @protected
-  Widget buildTitle(BuildContext context) => Container(
-    decoration: BoxDecoration(
-      color: Theme.of(context)
-          .colorScheme
-          .secondaryContainer,
-      borderRadius: defaultBorderRadius(),
-    ),
-    child: defaultPadding(Text(analyzor.getName())),
-  );
+  Widget buildTitle(BuildContext context) =>
+      Text(analyzor.getName());
 
   @protected
   Widget? buildSubtitle(BuildContext context) => null;
@@ -38,10 +31,20 @@ class AnalyzorConfigWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: buildLeading(context),
-      title: buildTitle(context),
-      subtitle: buildSubtitle(context),
+    return Padding(
+      padding: .only(bottom: 20, left: 20, right: 20),
+      child: ListTile(
+        shape: RoundedRectangleBorder(
+          borderRadius: defaultBorderRadius(),
+        ),
+
+        tileColor: Theme.of(context)
+            .colorScheme
+            .secondaryContainer, // Theme.of(context).colorScheme.onSecondary,
+        leading: buildLeading(context),
+        title: buildTitle(context),
+        subtitle: buildSubtitle(context),
+      ),
     );
   }
 }

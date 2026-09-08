@@ -53,7 +53,7 @@ lib/src/features contain subfolders
 
 For version bumps, you have to update
 
-* pubspec.yaml
+* link:pubspec.yaml[]
 * link:lib/features/home/ui/sm_scaffold.dart[]
 
 #### New Screen
@@ -99,16 +99,16 @@ fastforge package --platform linux --targets deb
 
 ## ToDo
 
-* enable/disable Analyzors
-** make settings permanent - probably with polymorphism of dart_mappable
 * Refactor: Base log- and home screen on SmScaffold
 * translation to english
-* Make it deployable as as .deb package
+* Make it deployable as a .deb package
 ** uninstall bug: why does aptitude complain about non-empty /opt folder?
 * screenshot in README
 * user docs 
 ** create special folder docs
 ** link to github user docs file from app
+* Bug: when scrolling on config screen, analyzors views should not scroll
+  into the introductory text. 
 * log all exceptions
 ** register global logger?
 ** wrap all execution code at top level?

@@ -14,17 +14,12 @@ class ConfigScreen extends StatelessWidget {
         crossAxisAlignment: .start,
         children: [
           defaultPadding(
-            Column(
-              crossAxisAlignment: .start,
-              children: [
-                Text(
-                  'Folgende "Analysierer" werden in folgender Reihenfolge für jede Datei aufgerufen. Der erste "Analysierer", der das Datum des Mediums erkennt, gewinnt.',
-                ),
-
-                Text(
-                  'In einer künftigen Version können die Analysierer verändert werden.',
-                ),
-              ],
+            Text(
+              'Die "Analysierer" werden - sofern aktiviert'
+              ' (Häkchen gesetzt) - in folgender '
+              'Reihenfolge für jede Datei abgefragt. '
+              'Der erste "Analysierer", der das Datum '
+              'des Mediums erkennt, entscheidet.',
             ),
           ),
           Expanded(child: AnalyzorsView()),
