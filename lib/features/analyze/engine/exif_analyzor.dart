@@ -1,12 +1,19 @@
 import 'dart:io';
 
+import 'package:dart_mappable/dart_mappable.dart';
 import 'package:exif_reader/exif_reader.dart'
     show readExifFromBytes, ExifData;
 
 import '../../log/uistate/logger.dart';
 import 'analyzor.dart';
 
-class ExifAnalyzor extends Analyzor {
+part "exif_analyzor.mapper.dart";
+
+@MappableClass()
+class ExifAnalyzor extends Analyzor
+    with ExifAnalyzorMappable {
+  new({required super.enabled});
+
   @override
   Future<AnalyzeData?> analyzeFile(File file) async {
     final fileContent = await file.readAsBytes();
@@ -23,7 +30,7 @@ class ExifAnalyzor extends Analyzor {
       log("""${dateTimeStr?.tagType} 
         ${_dateTimeDigitized2dartDateTime(exif)}""");
       final data = AnalyzeData(
-        name,
+        getName(),
         file.path,
         _dateTimeDigitized2dartDateTime(exif),
       );
@@ -36,7 +43,7 @@ class ExifAnalyzor extends Analyzor {
   }
 
   @override
-  String get name => "ExifAnalyzor";
+  String getName() => "ExifAnalyzor";
 }
 
 DateTime _dateTimeDigitized2dartDateTime(ExifData exif) {

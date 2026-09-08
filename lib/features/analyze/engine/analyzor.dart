@@ -1,12 +1,28 @@
 import 'dart:io' show File;
 
-/// An Analyzor tres to
-abstract class Analyzor {
+// import without "show" because of part  "analyzor.mapper.dart"
+import 'package:dart_mappable/dart_mappable.dart';
+
+part "analyzor.mapper.dart";
+
+@MappableClass()
+class MyClass with MyClassMappable {
+  final bool myValue;
+
+  MyClass(this.myValue);
+}
+
+/// An Analyzor tries to get a relevant date for
+/// a given media file
+@MappableClass(discriminatorKey: "type")
+abstract class Analyzor with AnalyzorMappable {
+  Analyzor({required this.enabled});
+
   /// name of the analyzor
-  String get name;
+  String getName();
 
   /// set false to disable Analyzor
-  bool enabled = true;
+  bool enabled;
 
   /// If analyzor succeds, it returns analyzed data
   Future<AnalyzeData?> analyzeFile(File file);

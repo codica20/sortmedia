@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:watch_it/watch_it.dart';
 
-import '../state/settings_state.dart';
+import '../uistate/settings_state.dart';
 import 'choose_dir_setting_widget.dart';
 
 class SettingsWidget extends WatchingWidget {

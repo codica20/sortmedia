@@ -3,7 +3,7 @@ import 'package:watch_it/watch_it.dart';
 
 import '../../show_message/ui/show_message.dart';
 import '../engine/analyze.dart';
-import '../../settings/state/settings_state.dart';
+import '../../settings/uistate/settings_state.dart';
 import '../../log/uistate/logger.dart' show log;
 import '../uistate/analyzor_list.dart' show AnalyzorList;
 

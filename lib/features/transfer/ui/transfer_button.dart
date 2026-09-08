@@ -8,7 +8,7 @@ import 'package:watch_it/watch_it.dart';
 import '../../show_message/ui/show_message.dart';
 
 import '../../analyze/engine/analyze.dart';
-import '../../settings/state/settings_state.dart';
+import '../../settings/uistate/settings_state.dart';
 import '../../log/uistate/logger.dart' show log;
 
 class TransferButton extends WatchingWidget {

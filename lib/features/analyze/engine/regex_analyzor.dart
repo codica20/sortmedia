@@ -1,9 +1,12 @@
 import 'dart:io' show File;
 
 import 'package:path/path.dart' show basename;
+import 'package:dart_mappable/dart_mappable.dart';
 
 import '../../log/uistate/logger.dart';
 import 'analyzor.dart';
+
+part 'regex_analyzor.mapper.dart';
 
 /// provides an analyzor for the basename of the source path.
 /// That is it tries to match the regex pattern against the
@@ -14,17 +17,12 @@ import 'analyzor.dart';
 /// Optionally, it could contain day, hour, minute and
 /// second.
 /// Example for a regex: RegExp(r`^(?<year>\d\d\d\d)(?<month>\d\d)(?<day>\d\d)_(?<hour>\d\d)(?<minute>\d\d)(?<second>\d\d).jpg$`)
-class RegExAnalyzor extends Analyzor {
-  RegExAnalyzor({
-    required this.regex,
-    String? analyzorName,
-  }) {
-    _name = analyzorName;
-  }
+@MappableClass()
+class RegExAnalyzor extends Analyzor
+    with RegExAnalyzorMappable {
+  RegExAnalyzor({required this.regex, required super.enabled});
 
   final RegExp regex;
-  late final String? _name;
-
   @override
   Future<AnalyzeData?> analyzeFile(File file) async {
     try {
@@ -70,7 +68,7 @@ class RegExAnalyzor extends Analyzor {
       );
 
       return AnalyzeData(
-        name,
+        getName(),
         file.path,
         shotTime,
       ); // success
@@ -81,7 +79,7 @@ class RegExAnalyzor extends Analyzor {
   }
 
   @override
-  String get name => _name ?? "Regex: $regex";
+  String getName() => "Regex: $regex";
 }
 
 /// throws an error, if group is not available

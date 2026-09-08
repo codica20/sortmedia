@@ -26,6 +26,11 @@ To build
   flutter build linux
 ```  
 
+Before building or running, you have to generate serialization classes by
+```bash
+   dart run build_runner build
+```
+
 After build and packaging (see <<Deployment for Debian, below>>), on Debian/Ubuntu/Linux Mint, you can install the `.deb`-package in
 `dist/${VERSION}/sortmedia-${VERSION}-linux.deb`.
 
@@ -49,7 +54,7 @@ lib/src/features contain subfolders
 For version bumps, you have to update
 
 * pubspec.yaml
-* lib/features/home/ui/sm_scaffold.dart
+* link:lib/features/home/ui/sm_scaffold.dart[]
 
 #### New Screen
 
@@ -63,6 +68,7 @@ For version bumps, you have to update
 * Add new Analyzor to list in link:lib/features/analyze/uistate/analyzor_list.dart[]
 * If necessary, create new AnalyzorConfigWidget in link:lib/features/config/ui[]
 * If necessary, add new AnalyzorConfigWidget to link:lib/features/config/ui/analyzor_config_widget_factory.dart[]
+* Make it known to dart_mappable using `NewAnalyzorMapper.ensureInitialized()` in link:lib/main.dart[]
 
 ### Deployment for Debian
 
@@ -93,11 +99,19 @@ fastforge package --platform linux --targets deb
 
 ## ToDo
 
+* enable/disable Analyzors
+** make settings permanent - probably with polymorphism of dart_mappable
 * Refactor: Base log- and home screen on SmScaffold
 * translation to english
 * Make it deployable as as .deb package
 ** uninstall bug: why does aptitude complain about non-empty /opt folder?
 * screenshot in README
+* user docs 
+** create special folder docs
+** link to github user docs file from app
+* log all exceptions
+** register global logger?
+** wrap all execution code at top level?
 * show processed files with filters
 * clean logs
 ** scan progress

@@ -20,7 +20,7 @@ class SmScaffold extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: colorScheme.inversePrimary,
-        title: Text("$title - Sort Media 0.1.1"),
+        title: Text("$title - Sort Media 0.1.2"),
       ),
       body: child,
       bottomNavigationBar: NavBar(),

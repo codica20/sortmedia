@@ -22,7 +22,7 @@ class AnalyzorConfigWidget extends StatelessWidget {
           .secondaryContainer,
       borderRadius: defaultBorderRadius(),
     ),
-    child: defaultPadding(Text(analyzor.name)),
+    child: defaultPadding(Text(analyzor.getName())),
   );
 
   @protected
