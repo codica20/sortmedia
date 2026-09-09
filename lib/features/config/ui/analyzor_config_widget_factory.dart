@@ -1,4 +1,4 @@
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:sortmedia/features/analyze/engine/regex_analyzor.dart';
 import 'package:sortmedia/features/config/ui/regex_analyzor_config_widget.dart';

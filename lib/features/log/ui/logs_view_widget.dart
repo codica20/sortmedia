@@ -1,4 +1,4 @@
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
 import 'log_item_widget.dart';
 import '../uistate/logger.dart';
 import 'package:watch_it/watch_it.dart';
