@@ -1,21 +1,20 @@
 import 'package:dart_mappable/dart_mappable.dart'
     show MapperContainer;
 import 'package:flutter/material.dart';
-import 'package:sortmedia/features/analyze/engine/exif_analyzor.dart';
-import 'package:sortmedia/features/analyze/engine/regex_analyzor.dart';
+import 'package:flutter_localizations/flutter_localizations.dart'
+    as flutter_localizations;
 
 import 'features/analyze/engine/analyzor.dart';
-
+import 'features/analyze/engine/exif_analyzor.dart';
+import 'features/analyze/engine/regex_analyzor.dart';
 import 'features/analyze/uistate/analyzor_list.dart';
-
 import 'features/config/ui/config_screen.dart';
-
 import 'features/home/ui/home_screen.dart';
 import 'features/log/ui/logs_screen.dart';
-import 'features/navigation/uistate/current_screen_model.dart';
-
-import 'features/settings/uistate/settings_state.dart';
 import 'features/log/uistate/logger.dart';
+import 'features/navigation/uistate/current_screen_model.dart';
+import 'features/settings/uistate/settings_state.dart';
+import 'l10n/app_localizations.dart';
 import 'utils/regexp_mapper.dart';
 
 void main() {
@@ -38,6 +37,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Sort Media',
+      localizationsDelegates: [AppLocalizations.delegate,
+        ...flutter_localizations
+            .GlobalMaterialLocalizations
+            .delegates,
+      ],
+      supportedLocales: AppLocalizations.supportedLocales,
       theme: ThemeData(
         colorScheme: .fromSeed(
           seedColor: Colors.greenAccent,

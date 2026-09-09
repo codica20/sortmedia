@@ -1,0 +1,6 @@
+{
+  "@@locale": "de",
+  "srcDir": "Quellverzeichnis",
+  "destDir": "Zielverzeichnis",
+  "unclassifiedDir": "Verzeichnis für unklassifizierte Dateien"
+}

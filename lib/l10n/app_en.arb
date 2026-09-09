@@ -1,0 +1,9 @@
+{
+  "@@locale": "en",
+  "srcDir": "source directory",
+  "@srcDir": { "description": "The source directory"},
+  "destDir": "destination directory",
+  "@destDir": { "description": "The destination directory"},
+  "unclassifiedDir": "unclassified directory",
+  "@unclassifiedDir": { "description": "The directory for unclassified files"}
+}

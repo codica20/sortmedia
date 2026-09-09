@@ -42,6 +42,9 @@ dependencies:
   path: ^1.9.1
   exif_reader: ^4.1.0
   dart_mappable: ^4.8.0
+  flutter_localizations:
+    sdk: flutter
+  intl: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -60,6 +63,9 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+
+  # Necessary for l10n
+  generate: true
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sortmedia/l10n/app_localizations.dart';
 import 'package:watch_it/watch_it.dart';
 
 import '../uistate/settings_state.dart';
@@ -10,18 +11,19 @@ class SettingsWidget extends WatchingWidget {
   @override
   Widget build(BuildContext context) {
     final settingsState = watchIt<SettingsState>();
+    getTranslation() => AppLocalizations.of(context)!;
     return Column(
       crossAxisAlignment: .stretch,
       children: [
         ChooseDirSettingWidget(
-          dirName: "Quellverzeichnis",
+          dirName: getTranslation().srcDir,
           dir: settingsState.srcDir,
           setDir: (String? dir) {
             settingsState.srcDir = dir;
           },
         ),
         ChooseDirSettingWidget(
-          dirName: "Zielverzeichnis",
+          dirName: getTranslation().destDir,
           dir: settingsState.destDir,
           setDir: (String? dir) {
             settingsState.destDir = dir;
@@ -29,7 +31,7 @@ class SettingsWidget extends WatchingWidget {
         ),
         ChooseDirSettingWidget(
           dirName:
-              "Verzeichnis für unklassifizierte Dateien",
+              getTranslation().unclassifiedDir,
           dir: settingsState.otherDir,
           setDir: (String? dir) {
             settingsState.otherDir = dir;
