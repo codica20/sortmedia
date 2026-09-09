@@ -19,13 +19,13 @@ class NavBar extends WatchingWidget {
 
         await Navigator.pushNamed(
           context,
-          navDests[value].path,
+          navDests(context)[value].path,
         );
         // after popping the new screen return to old (current) screen nr
         setCurrentScreenNr(currentScreenNr);
       },
       selectedIndex: currentScreenNr,
-      destinations: navDests
+      destinations: navDests(context)
           .map(
             (navDest) => NavigationDestination(
               icon: Icon(navDest.icon),

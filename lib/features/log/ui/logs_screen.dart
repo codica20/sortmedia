@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import '../../../l10n/app_localizations.dart';
+
 import 'logs_view_widget.dart';
 import '../../navigation/ui/nav_bar.dart';
 
@@ -7,9 +10,10 @@ class LogsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final translations = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Logs'),
+        title: Text(translations.logsScreenName),
         backgroundColor: Theme.of(context)
             .colorScheme
             .secondary,

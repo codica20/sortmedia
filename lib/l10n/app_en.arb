@@ -54,5 +54,17 @@
   "analyze": "Analyze",
   "@analyze": {
     "description": "Start to analyze"
+  },
+  "homeScreenName": "Home",
+  "@homeScreenName": {
+    "description": "Title of home screen"
+  },
+  "configScreenName": "Config",
+  "@configScreenName": {
+    "description": "Title of config screen"
+  },
+  "logsScreenName": "Logs",
+  "@logsScreenName": {
+    "description": "Title of logs screen"
   }
 }

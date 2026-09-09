@@ -9,5 +9,8 @@
   "choose": "Wähle {target} ...",
   "picked": "{target} ausgewählt.",
   "copy": "Kopieren",
-  "analyze": "Analysiere"
+  "analyze": "Analysiere",
+  "homeScreenName": "Übersicht",
+  "configScreenName": "Konfiguration",
+  "logsScreenName": "Protokoll"
 }

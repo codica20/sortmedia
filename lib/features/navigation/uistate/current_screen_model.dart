@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sortmedia/l10n/app_localizations.dart';
 import 'package:watch_it/watch_it.dart';
 
 class CurrentScreenModel {
@@ -23,10 +24,21 @@ class NavDest {
   String path;
 }
 
-/// lists the screens you can navigate to via teh NavBar
+/// lists the screens you can navigate to via the NavBar
 /// See also routes in main.dart
-List<NavDest> navDests = [
-  NavDest(Icons.home, "Übersicht", "/"),
-  NavDest(Icons.settings, "Konfiguration", "/config"),
-  NavDest(Icons.bug_report, "Logs", "/logs"),
-];
+List<NavDest> navDests(BuildContext context) {
+  final translations = AppLocalizations.of(context)!;
+  return [
+    NavDest(Icons.home, translations.homeScreenName, "/"),
+    NavDest(
+      Icons.settings,
+      translations.configScreenName,
+      "/config",
+    ),
+    NavDest(
+      Icons.bug_report,
+      translations.logsScreenName,
+      "/logs",
+    ),
+  ];
+}

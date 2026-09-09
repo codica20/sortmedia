@@ -100,13 +100,17 @@ fastforge package --platform linux --targets deb
 ## ToDo
 
 * Refactor: Base log- and home screen on SmScaffold
-* translation to english
+* continue translation to english 
+** check navDests in link:lib/features/navigation/uistate/current_screen_model.dart[]
 * Make it deployable as a .deb package
 ** uninstall bug: why does aptitude complain about non-empty /opt folder?
 * screenshot in README
 * user docs 
 ** create special folder docs
 ** link to github user docs file from app
+* move to separate material_ui package
+** first check in a simple project, if l10n works with new package
+** then: `dart fix --apply --code=migrate_design_widgets`
 * Bug: when scrolling on config screen, analyzors views should not scroll
   into the introductory text. 
 * log all exceptions

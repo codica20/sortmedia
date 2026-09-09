@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 import 'analyzors_view.dart';
 import '../../home/ui/sm_scaffold.dart';
 
@@ -8,8 +10,9 @@ class ConfigScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final translations = AppLocalizations.of(context)!;
     return SmScaffold(
-      title: "Konfiguration",
+      title: translations.configScreenName,
       child: Column(
         crossAxisAlignment: .start,
         children: [
