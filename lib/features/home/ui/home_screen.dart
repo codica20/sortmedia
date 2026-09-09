@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sortmedia/features/choose_lang/ui/lang_setter.dart';
 
 import '../../navigation/ui/nav_bar.dart';
 
@@ -24,6 +25,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: colorScheme.inversePrimary,
         title: Text(title),
+        actions: [LangSetter()],
       ),
       body: Column(
         mainAxisAlignment: .spaceBetween,

@@ -3,6 +3,8 @@ import 'package:dart_mappable/dart_mappable.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart'
     as flutter_localizations;
+import 'package:sortmedia/features/choose_lang/ui/l10n_provider.dart';
+import 'package:sortmedia/features/choose_lang/uistate/lang_state.dart';
 
 import 'features/analyze/engine/analyzor.dart';
 import 'features/analyze/engine/exif_analyzor.dart';
@@ -24,6 +26,7 @@ void main() {
   RegExAnalyzorMapper.ensureInitialized();
   registerLogger();
   registerSettingsState();
+  registerLangState();
   registerCurrentScreenModel();
   registerAnalyzorList();
   runApp(const MyApp());
@@ -37,7 +40,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Sort Media',
-      localizationsDelegates: [AppLocalizations.delegate,
+      localizationsDelegates: [
+        AppLocalizations.delegate,
         ...flutter_localizations
             .GlobalMaterialLocalizations
             .delegates,
@@ -49,10 +53,13 @@ class MyApp extends StatelessWidget {
         ),
       ),
       routes: {
-        "/": (context) =>
-            const HomeScreen(title: 'Sort Media'),
-        "/config": (context) => const ConfigScreen(),
-        "/logs": (context) => const LogsScreen(),
+        "/": (context) => const L10nProvider(
+          child: HomeScreen(title: 'Sort Media'),
+        ),
+        "/config": (context) =>
+            const L10nProvider(child: ConfigScreen()),
+        "/logs": (context) =>
+            const L10nProvider(child: LogsScreen()),
       },
     );
   }
