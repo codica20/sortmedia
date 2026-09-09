@@ -1,5 +1,6 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:sortmedia/l10n/app_localizations.dart';
 
 import '../../home/ui/sm_scaffold.dart';
 
@@ -19,6 +20,7 @@ class ChooseDirSettingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    getTranslation() => AppLocalizations.of(context)!;
     return Container(
       padding: .all(20),
       margin: .directional(bottom: 20),
@@ -34,7 +36,7 @@ class ChooseDirSettingWidget extends StatelessWidget {
         crossAxisAlignment: .center,
         children: [
           SelectableText(
-            "$dirName: ${dir ?? "nicht gesetzt"}",
+            "$dirName: ${dir ?? getTranslation().notSet}",
           ),
 
           Row(
@@ -46,16 +48,18 @@ class ChooseDirSettingWidget extends StatelessWidget {
                       await FilePicker.getDirectoryPath(
                         initialDirectory: dir,
                       );
-                  log('Picked: $location');
                   if (location != null) {
+                    log(getTranslation().picked(location));
                     setDir(location);
                   }
                 },
-                child: Text("Wähle $dirName"),
+                child: Text(
+                  getTranslation().choose(dirName),
+                ),
               ),
               IconButton(
                 onPressed: () {
-                  log("$dirName entfernt.");
+                  log(getTranslation().removed(dirName));
                   setDir(null);
                 },
                 icon: const Icon(Icons.delete),

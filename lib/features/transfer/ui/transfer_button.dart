@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../analyze/uistate/analyzor_list.dart' show AnalyzorList;
+import '../../../l10n/app_localizations.dart'
+    show AppLocalizations;
+import '../../analyze/uistate/analyzor_list.dart'
+    show AnalyzorList;
 import '../engine/transfer.dart';
 
 import 'package:watch_it/watch_it.dart';
@@ -16,8 +19,9 @@ class TransferButton extends WatchingWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final analyzors = watchIt<AnalyzorList>().analyzors;
+
+    getTranslation() => AppLocalizations.of(context)!;
     return FilledButton(
       onPressed: () async {
         log(
@@ -49,7 +53,10 @@ class TransferButton extends WatchingWidget {
           return;
         }
         try {
-          final dirData = await analyzeDir(analyzors,srcDir);
+          final dirData = await analyzeDir(
+            analyzors,
+            srcDir,
+          );
 
           for (var data in dirData.recognized) {
             log("rcgnzd: $data");
@@ -82,7 +89,7 @@ class TransferButton extends WatchingWidget {
           }
         }
       },
-      child: Text("Kopieren"),
+      child: Text(getTranslation().copy),
     );
   }
 }

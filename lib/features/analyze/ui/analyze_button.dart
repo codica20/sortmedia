@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:watch_it/watch_it.dart';
 
+import '../../../l10n/app_localizations.dart' show AppLocalizations;
 import '../../show_message/ui/show_message.dart';
 import '../engine/analyze.dart';
 import '../../settings/uistate/settings_state.dart';
@@ -13,6 +14,8 @@ class AnalyzeButton extends WatchingWidget {
   @override
   Widget build(BuildContext context) {
     final analyzors = watchIt<AnalyzorList>().analyzors;
+
+    getTranslation() => AppLocalizations.of(context)!;
     return OutlinedButton(
       onPressed: () async {
         log("Analysiere ${settingsState.srcDir} ...");
@@ -53,7 +56,7 @@ class AnalyzeButton extends WatchingWidget {
           );
         }
       },
-      child: Text("Analysiere"),
+      child: Text(getTranslation().analyze),
     );
   }
 }

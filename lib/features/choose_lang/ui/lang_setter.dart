@@ -7,6 +7,8 @@ import '../uistate/lang_state.dart'
 import 'package:watch_it/watch_it.dart';
 
 /// allows to switch between supported locales
+/// click on it to choose the next available
+/// language.
 class LangSetter extends WatchingWidget {
   const LangSetter({super.key});
 

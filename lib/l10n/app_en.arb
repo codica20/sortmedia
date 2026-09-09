@@ -1,11 +1,58 @@
 {
   "@@locale": "en",
   "srcDir": "source directory",
-  "@srcDir": { "description": "The source directory"},
+  "@srcDir": {
+    "description": "The source directory"
+  },
   "destDir": "destination directory",
-  "@destDir": { "description": "The destination directory"},
+  "@destDir": {
+    "description": "The destination directory"
+  },
   "unclassifiedDir": "unclassified directory",
-  "@unclassifiedDir": { "description": "The directory for unclassified files"},
+  "@unclassifiedDir": {
+    "description": "The directory for unclassified files"
+  },
   "systemDefault": "system default",
-  "@systemDefault": {"description": "System default setting"}
+  "@systemDefault": {
+    "description": "System default setting"
+  },
+  "notSet": "not yet set",
+  "@notSet": {
+    "description": "Setting has not been set."
+  },
+  "removed": "Removed {target}.",
+  "@removed": {
+    "description": "After removing of a target, e.g. a folder.",
+    "placeholders": {
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "choose": "Choose {target}...",
+  "@choose": {
+    "description": "For chosing of a target, e.g. a folder.",
+    "placeholders": {
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "picked": "Picked {target}.",
+  "@picked": {
+    "description": "After choosing of a target, e.g. a folder.",
+    "placeholders": {
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "copy": "Copy",
+  "@copy": {
+    "description": "Start to copy"
+  },
+  "analyze": "Analyze",
+  "@analyze": {
+    "description": "Start to analyze"
+  }
 }

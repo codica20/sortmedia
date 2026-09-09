@@ -3,5 +3,11 @@
   "srcDir": "Quellverzeichnis",
   "destDir": "Zielverzeichnis",
   "unclassifiedDir": "Verzeichnis für unklassifizierte Dateien",
-  "systemDefault": "Systemvorgabe"
+  "systemDefault": "Systemvorgabe",
+  "notSet": "nicht gesetzt",
+  "removed": "{target} entfernt.",
+  "choose": "Wähle {target} ...",
+  "picked": "{target} ausgewählt.",
+  "copy": "Kopieren",
+  "analyze": "Analysiere"
 }
