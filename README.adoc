@@ -109,7 +109,7 @@ fastforge package --platform linux --targets deb
 ** create special folder docs
 ** link to github user docs file from app
 * move to separate material_ui package
-** first check in a simple project, if l10n works with new package
+** first check in a simple project, if l10n works with new package (did not with flutter 3.47.2)
 ** then: `dart fix --apply --code=migrate_design_widgets`
 * Bug: when scrolling on config screen, analyzors views should not scroll
   into the introductory text. 

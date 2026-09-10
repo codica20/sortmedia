@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dart_mappable/dart_mappable.dart'
     show MapperContainer;
 import 'package:flutter/material.dart';
@@ -20,16 +22,34 @@ import 'l10n/app_localizations.dart';
 import 'utils/regexp_mapper.dart';
 
 void main() {
+  // initialize everything that has no flutter dependencies
   MapperContainer.globals.use(RegExpMapper());
   AnalyzorMapper.ensureInitialized();
   ExifAnalyzorMapper.ensureInitialized();
   RegExAnalyzorMapper.ensureInitialized();
+
+  // initialize flutter and dependencies
+  WidgetsFlutterBinding.ensureInitialized;
   registerLogger();
   registerSettingsState();
   registerLangState();
   registerCurrentScreenModel();
   registerAnalyzorList();
-  runApp(const MyApp());
+
+  // run app with catching unhandled exceptions
+  runZonedGuarded(
+    () {
+      FlutterError.onError=(FlutterErrorDetails details) {
+        log("Unhandled: $details");
+        FlutterError.presentError(details);
+      };
+      runApp(const MyApp());
+    },
+    (dynamic error, StackTrace stackTrace) {
+      log("Got an Error: $error");
+      log("... with following stack: $stackTrace");
+    },
+  );
 }
 
 class MyApp extends StatelessWidget {
