@@ -19,7 +19,8 @@ class LangSetter extends WatchingWidget {
     );
 
     langText(String? lang) =>
-        lang ?? AppLocalizations.of(context)!.systemDefault;
+        lang?.toUpperCase() ??
+        AppLocalizations.of(context)!.systemDefault;
     return TextButton(
       onPressed: () {
         langState.lang = _getNextLang(chosenLang);
