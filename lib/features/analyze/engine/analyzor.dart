@@ -37,15 +37,11 @@ class AnalyzeData {
 
   @override
   String toString() {
-    return "${getYear()}/${getMonth()}: $srcPath by $analyzorName";
+    return "$dateTime: $srcPath by $analyzorName";
   }
 
   final String analyzorName;
   final String srcPath;
   final DateTime dateTime;
-  String getYear() => dateTime.year.toString();
-  String getMonth() {
-    final shortStr = dateTime.month.toString();
-    return shortStr.padLeft(2, '0');
-  }
+  
 }

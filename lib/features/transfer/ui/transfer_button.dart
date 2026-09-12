@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:sortmedia/features/settings/uistate/date_format_state.dart';
 
 import '../../../l10n/app_localizations.dart'
     show AppLocalizations;
@@ -20,6 +22,9 @@ class TransferButton extends WatchingWidget {
   @override
   Widget build(BuildContext context) {
     final analyzors = watchIt<AnalyzorList>().analyzors;
+    final dateFormat = watchValue(
+      (DateFormatState s) => s.dateformatEditingController,
+    ).text;
 
     getTranslation() => AppLocalizations.of(context)!;
     return FilledButton(
@@ -69,6 +74,7 @@ class TransferButton extends WatchingWidget {
             dirData,
             destDir,
             otherDir,
+            DateFormat(dateFormat),
           );
           if (context.mounted) {
             showMessage(

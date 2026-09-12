@@ -7,6 +7,7 @@ import 'package:flutter_localizations/flutter_localizations.dart'
     as flutter_localizations;
 import 'package:sortmedia/features/choose_lang/ui/l10n_provider.dart';
 import 'package:sortmedia/features/choose_lang/uistate/lang_state.dart';
+import 'package:sortmedia/features/settings/uistate/date_format_state.dart';
 
 import 'features/analyze/engine/analyzor.dart';
 import 'features/analyze/engine/exif_analyzor.dart';
@@ -32,6 +33,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized;
   registerLogger();
   registerSettingsState();
+  DateFormatState.registerSingleton();
   registerLangState();
   registerCurrentScreenModel();
   registerAnalyzorList();
@@ -39,7 +41,7 @@ void main() {
   // run app with catching unhandled exceptions
   runZonedGuarded(
     () {
-      FlutterError.onError=(FlutterErrorDetails details) {
+      FlutterError.onError = (FlutterErrorDetails details) {
         log("Unhandled: $details");
         FlutterError.presentError(details);
       };

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sortmedia/features/settings/ui/sm_dateformat_widget.dart';
 import 'package:sortmedia/l10n/app_localizations.dart';
 import 'package:watch_it/watch_it.dart';
 
@@ -29,9 +30,9 @@ class SettingsWidget extends WatchingWidget {
             settingsState.destDir = dir;
           },
         ),
+        SmDateformatWidget(),
         ChooseDirSettingWidget(
-          dirName:
-              getTranslation().unclassifiedDir,
+          dirName: getTranslation().unclassifiedDir,
           dir: settingsState.otherDir,
           setDir: (String? dir) {
             settingsState.otherDir = dir;

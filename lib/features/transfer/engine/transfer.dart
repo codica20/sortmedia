@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:intl/intl.dart';
 import 'package:path/path.dart' show basename, join;
 
 import '../../analyze/engine/analyze.dart';
@@ -20,6 +21,7 @@ Future<TransferResult> transferFiles(
   AnalyzeDirData analyzedFiles,
   String destDir,
   String otherDir,
+  DateFormat dateFormat,
 ) async {
   int recognizedCopies = 0;
   int notRecognizedCopies = 0;
@@ -28,6 +30,7 @@ Future<TransferResult> transferFiles(
       fileData,
       destDir,
       otherDir,
+      dateFormat,
     )) {
       recognizedCopies++;
     }
@@ -50,9 +53,11 @@ Future<bool> _transferRecognizedFile(
   AnalyzeData fileData,
   String destDir,
   String otherDir,
+  DateFormat dateFormat,
 ) async {
+  final formatted = dateFormat.format(fileData.dateTime);
   Directory fileDestDir = Directory(
-    join(destDir, fileData.getYear(), fileData.getMonth()),
+    join(destDir, formatted),
   );
   if (!await fileDestDir.exists()) {
     log("Creating directory $fileDestDir ...");
