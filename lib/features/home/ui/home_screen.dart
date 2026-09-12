@@ -37,28 +37,24 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   defaultPadding(SettingsWidget()),
-                  defaultPadding(
-                    Row(
-                      mainAxisAlignment: .spaceBetween,
-                      children: [
-                        AnalyzeButton(),
-                        TransferButton(),
-                      ],
-                    ),
-                  ),
                 ],
               ),
             ),
           ),
-
+          defaultPadding(
+            Row(
+              mainAxisAlignment: .spaceBetween,
+              children: [AnalyzeButton(), TransferButton()],
+            ),
+          ),
           SizedBox(
             height: screenHeight / 4,
             child: Container(
               decoration: BoxDecoration(
                 borderRadius:
                     BorderRadiusGeometry.directional(
-                      topStart: Radius.circular(10),
-                      topEnd: Radius.circular(10),
+                      topStart: Radius.circular(15),
+                      topEnd: Radius.circular(15),
                     ),
                 color: colorScheme.secondaryContainer,
               ),

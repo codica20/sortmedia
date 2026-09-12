@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'log_item_widget.dart';
 import '../uistate/logger.dart';
+
 import 'package:watch_it/watch_it.dart';
 
 /// shows the logs, newest at the top
@@ -18,13 +20,14 @@ class LogsViewWidget extends WatchingWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(
-              Radius.circular(10),
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
             ),
 
             color: theme.colorScheme.primaryContainer,
           ),
-          padding: .all(10),
+          padding: .symmetric(vertical: 10, horizontal: 20),
           child: Text(
             heading,
             style: theme.textTheme.titleMedium,

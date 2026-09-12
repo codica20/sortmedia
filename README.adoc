@@ -99,6 +99,7 @@ fastforge package --platform linux --targets deb
 
 ## ToDo
 
+* config folder structure via template, e.g. "mediaYYYY/YYYY-MM"
 * Refactor: Base log- and home screen on SmScaffold
 * continue translation to english 
 ** check navDests in link:lib/features/navigation/uistate/current_screen_model.dart[]
@@ -113,10 +114,8 @@ fastforge package --platform linux --targets deb
 ** then: `dart fix --apply --code=migrate_design_widgets`
 * Bug: when scrolling on config screen, analyzors views should not scroll
   into the introductory text. 
-* log all exceptions
-** register global logger?
-** wrap all execution code at top level?
 * show processed files with filters
+* allow multiple source-dest-pairs, which can be separetely activated
 * clean logs
 ** scan progress
 ** whole copy progress and 

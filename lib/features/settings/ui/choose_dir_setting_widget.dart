@@ -1,9 +1,8 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:sortmedia/l10n/app_localizations.dart';
 
-import '../../home/ui/sm_scaffold.dart';
-
+import 'setting_base_widget.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../../features/log/uistate/logger.dart';
 
 class ChooseDirSettingWidget extends StatelessWidget {
@@ -21,15 +20,7 @@ class ChooseDirSettingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     getTranslation() => AppLocalizations.of(context)!;
-    return Container(
-      padding: .all(20),
-      margin: .directional(bottom: 20),
-      decoration: BoxDecoration(
-        borderRadius: defaultBorderRadius(),
-        color: Theme.of(context)
-            .colorScheme
-            .secondaryContainer,
-      ),
+    return SettingBaseWidget(
       child: Wrap(
         direction: .horizontal,
         alignment: .spaceBetween,
