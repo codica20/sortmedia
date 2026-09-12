@@ -12,5 +12,7 @@
   "analyze": "Analysiere",
   "homeScreenName": "Übersicht",
   "configScreenName": "Konfiguration",
-  "logsScreenName": "Protokoll"
+  "logsScreenName": "Protokoll",
+  "dateFormatLabelText": "Verzeichnisstruktur (z.B. 'media_'yyyy/yyyy-MM)",
+  "example": "Beispiel: {example} "
 }

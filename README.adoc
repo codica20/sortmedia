@@ -99,7 +99,6 @@ fastforge package --platform linux --targets deb
 
 ## ToDo
 
-* config folder structure via template, e.g. "mediaYYYY/YYYY-MM"
 * Refactor: Base log- and home screen on SmScaffold
 * continue translation to english 
 ** check navDests in link:lib/features/navigation/uistate/current_screen_model.dart[]

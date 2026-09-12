@@ -66,5 +66,18 @@
   "logsScreenName": "Logs",
   "@logsScreenName": {
     "description": "Title of logs screen"
+  },
+  "dateFormatLabelText": "Folder structure (e.g. 'media_'yyyy/yyyy-MM)",
+  "@dateFormatLabelText": {
+    "description": "Label for setting date format input field for folder structure. Should provide an example."
+  },
+  "example": "Example: {example} ",
+  "@example": {
+    "description": "Introducing an example.",
+    "placeholders": {
+      "example": {
+        "type": "String"
+      }
+    }
   }
 }
