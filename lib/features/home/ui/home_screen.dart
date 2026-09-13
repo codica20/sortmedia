@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sortmedia/features/analyze/ui/abort_button.dart';
+import 'package:sortmedia/features/analyze/uistate/running_state.dart';
 import 'package:sortmedia/features/choose_lang/ui/lang_setter.dart';
+import 'package:sortmedia/l10n/app_localizations.dart';
+import 'package:watch_it/watch_it.dart';
 
 import '../../navigation/ui/nav_bar.dart';
 
@@ -41,11 +45,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          defaultPadding(
-            Row(
-              mainAxisAlignment: .spaceBetween,
-              children: [AnalyzeButton(), TransferButton()],
-            ),
+          defaultPadding(_SmRunningButtons()
           ),
           SizedBox(
             height: screenHeight / 4,
@@ -65,5 +65,28 @@ class HomeScreen extends StatelessWidget {
       ),
       bottomNavigationBar: NavBar(),
     );
+  }
+}
+
+class _SmRunningButtons extends WatchingWidget {
+  @override
+  Widget build(BuildContext context) {
+    final runningState = watchValue(
+      (RunningStateModel rs) => rs.runningState,
+    );
+
+    return switch (runningState) {
+      .idle => Row(
+        mainAxisAlignment: .spaceBetween,
+        children: [AnalyzeButton(), TransferButton()],
+      ),
+      .running => Row(
+        mainAxisAlignment: .end,
+        children: [AbortButton()],
+      ),
+      .aborting => Text(
+        AppLocalizations.of(context)!.aborting_message,
+      ),
+    };
   }
 }

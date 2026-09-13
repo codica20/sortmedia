@@ -5,6 +5,7 @@ import 'package:dart_mappable/dart_mappable.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart'
     as flutter_localizations;
+import 'package:sortmedia/features/analyze/uistate/running_state.dart';
 import 'package:sortmedia/features/choose_lang/ui/l10n_provider.dart';
 import 'package:sortmedia/features/choose_lang/uistate/lang_state.dart';
 import 'package:sortmedia/features/settings/uistate/date_format_state.dart';
@@ -32,6 +33,7 @@ void main() {
   // initialize flutter and dependencies
   WidgetsFlutterBinding.ensureInitialized;
   registerLogger();
+  RunningStateModel.registerSingleton();
   registerSettingsState();
   DateFormatState.registerSingleton();
   registerLangState();

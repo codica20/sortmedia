@@ -6,13 +6,14 @@ import '../../../l10n/app_localizations.dart'
     show AppLocalizations;
 import '../../analyze/uistate/analyzor_list.dart'
     show AnalyzorList;
-import '../engine/transfer.dart';
+import '../../analyze/uistate/running_state.dart';
+import '../engine/transfer_runner.dart';
 
 import 'package:watch_it/watch_it.dart';
 
 import '../../show_message/ui/show_message.dart';
 
-import '../../analyze/engine/analyze.dart';
+import '../../analyze/engine/analyze_runner.dart';
 import '../../settings/uistate/settings_state.dart';
 import '../../log/uistate/logger.dart' show log;
 
@@ -58,32 +59,65 @@ class TransferButton extends WatchingWidget {
           return;
         }
         try {
-          final dirData = await analyzeDir(
+          final analyzeRunner = AnalyzeRunner(
             analyzors,
             srcDir,
           );
 
-          for (var data in dirData.recognized) {
-            log("rcgnzd: $data");
-          }
-          for (var data in dirData.notRecognized) {
-            log("no: $data");
+          void analyzingStateListener() {
+            if (getRunningState() == .aborting) {
+              analyzeRunner.abort();
+            }
           }
 
-          final transferResult = await transferFiles(
-            dirData,
-            destDir,
-            otherDir,
-            DateFormat(dateFormat),
-          );
-          if (context.mounted) {
-            showMessage(
-              context,
-              "${dirData.recognized.length} Dateien"
-              " erkannt - davon ${transferResult.recognizedCopies} kopiert."
-              "${dirData.notRecognized.length} nicht"
-              " erkannt - davon ${transferResult.notRecognizedCopies}"
-              " kopiert.",
+          final runningState =
+              GetIt.instance<RunningStateModel>()
+                  .runningState;
+
+          runningState.addListener(analyzingStateListener);
+          try {
+            setRunningState(.running);
+            final dirData = await analyzeRunner.analyze();
+            runningState.removeListener(
+              analyzingStateListener,
+            );
+
+            final transferRunner = TransferRunner(
+              dirData,
+              destDir,
+              otherDir,
+              DateFormat(dateFormat),
+            );
+
+            void transferStateListener() {
+              if (getRunningState() == .aborting) {
+                transferRunner.abort();
+              }
+            }
+
+            runningState.addListener(transferStateListener);
+            try {
+              final transferResult = await transferRunner
+                  .transfer();
+              setRunningState(.idle);
+              if (context.mounted) {
+                showMessage(
+                  context,
+                  "${dirData.recognized.length} Dateien"
+                  " erkannt - davon ${transferResult.recognizedCopies} kopiert."
+                  "${dirData.notRecognized.length} nicht"
+                  " erkannt - davon ${transferResult.notRecognizedCopies}"
+                  " kopiert.",
+                );
+              }
+            } finally {
+              runningState.removeListener(
+                transferStateListener,
+              );
+            }
+          } finally {
+            runningState.removeListener(
+              analyzingStateListener,
             );
           }
         } catch (e) {

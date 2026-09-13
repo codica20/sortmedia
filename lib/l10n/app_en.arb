@@ -79,5 +79,13 @@
         "type": "String"
       }
     }
+  },
+  "abort_button": "Abort",
+  "@abort_button": {
+    "description": "Abort button text."
+  },
+  "aborting_message": "Aborting ...",
+  "@aborting_message": {
+    "description": "Message showing that process is aborting."
   }
 }

@@ -44,8 +44,12 @@ lib/src/features contain subfolders
 
 * ui
 * uistate - state that contains code related to widgets
-* state - pure state
-* data - logic to calculate, fetch or combine data needed for state
+  - no import of a ui dart file
+* state - pure state 
+  - no import of a flutter package 
+  - no import of a ui or uistate dart file
+* data or engine - logic to calculate, fetch or combine data 
+  - no import of ui/uistate/state dart file
 
 ### Checklist for Some Changes
 
@@ -101,7 +105,8 @@ fastforge package --platform linux --targets deb
 
 * Refactor: Base log- and home screen on SmScaffold
 * continue translation to english 
-** check navDests in link:lib/features/navigation/uistate/current_screen_model.dart[]
+* Refactor: navDests in link:lib/features/navigation/uistate/current_screen_model.dart[] should also provide the Routes required in link:lib/main.dart[]
+* Bug: Analysis data is not shown because
 * Make it deployable as a .deb package
 ** uninstall bug: why does aptitude complain about non-empty /opt folder?
 * screenshot in README
