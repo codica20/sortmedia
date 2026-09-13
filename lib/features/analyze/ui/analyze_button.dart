@@ -22,59 +22,51 @@ class AnalyzeButton extends WatchingWidget {
       onPressed: () async {
         log("Analysiere ${settingsState.srcDir} ...");
         final String? srcDir = settingsState.srcDir;
-        if (srcDir != null) {
-          try {
-            final runner = AnalyzeRunner(analyzors, srcDir);
 
-            runningStateListener() {
-              if (getRunningState() == .aborting) {
-                runner.abort();
-              }
-            }
-
-            final runningState =
-                GetIt.instance<RunningStateModel>()
-                    .runningState;
-
-            runningState.addListener(runningStateListener);
-            try {
-              setRunningState(.running);
-              final dirData = await runner.analyze();
-              runningState.removeListener(
-                runningStateListener,
-              );
-              setRunningState(.idle);
-              if (context.mounted) {
-                showMessage(
-                  context,
-                  "${dirData.aborted ? "ABGEBROCHEN: " : ""}"
-                  "${dirData.recognized.length} Dateien"
-                  " erkannt, ${dirData.notRecognized.length} nicht"
-                  " erkannt.",
-                );
-              } else {  //TODO: how to show snackbar without context?
-                log(
-                  "ERROR: no context in AnalyzeButton!!!!",
-                );
-              }
-            } finally {
-              runningState.removeListener(
-                runningStateListener,
-              );
-            }
-          } catch (e) {
-            if (context.mounted) {
-              showMessage(
-                context,
-                "Fehler beim Analysieren: $e",
-              );
-            }
-          }
-        } else {
+        if (srcDir == null) {
           showMessage(
             context,
             "Quellverzeichnis nicht gesetzt.", // TODO: l10n
           );
+          return;
+        }
+
+        try {
+          final runner = AnalyzeRunner(analyzors, srcDir);
+
+          runningStateListener() {
+            if (getRunningState() == .aborting) {
+              runner.abort();
+            }
+          }
+
+          final runningState =
+              GetIt.instance<RunningStateModel>()
+                  .runningState;
+
+          runningState.addListener(runningStateListener);
+          try {
+            setRunningState(.running);
+            final dirData = await runner.analyze();
+            runningState.removeListener(
+              runningStateListener,
+            );
+            setRunningState(.idle);
+
+            showMessage(
+              null,
+              "${dirData.aborted ? "ABGEBROCHEN: " : ""}"
+              "${dirData.recognized.length} Dateien"
+              " erkannt, ${dirData.notRecognized.length} nicht"
+              " erkannt.",
+            );
+          } finally {
+            runningState.removeListener(
+              runningStateListener,
+            );
+          }
+        } catch (e) {
+          showMessage(null, "Fehler beim Analysieren: $e");
         }
       },
       child: Text(getTranslation().analyze),

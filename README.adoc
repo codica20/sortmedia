@@ -106,7 +106,6 @@ fastforge package --platform linux --targets deb
 * Refactor: Base log- and home screen on SmScaffold
 * continue translation to english 
 * Refactor: navDests in link:lib/features/navigation/uistate/current_screen_model.dart[] should also provide the Routes required in link:lib/main.dart[]
-* Bug: Analysis data is not shown because
 * Make it deployable as a .deb package
 ** uninstall bug: why does aptitude complain about non-empty /opt folder?
 * screenshot in README
@@ -129,8 +128,6 @@ fastforge package --platform linux --targets deb
 * On main page, make size of logs settable
 * create button to show directories in system folder explorer
 * allow to create regex filename parser
-* choose not classified directory (default: "others" in destination root directory)
 * choose if files are copied, moved or linked
-* abort button
 * parallelize list files, parse file, copy files tasks
 * provide white list of files to be analyzed or a black list or both

@@ -14,12 +14,11 @@ class AbortButton extends StatelessWidget {
     return OutlinedButton(
       onPressed: () async {
         log(getTranslation().aborting_message);
-        if (context.mounted) {
-                showMessage(
-                  context,
-                  getTranslation().aborting_message,
-                );
-              }
+
+        showMessage(
+          context,
+          getTranslation().aborting_message,
+        );
       },
       child: Text(getTranslation().abort_button),
     );

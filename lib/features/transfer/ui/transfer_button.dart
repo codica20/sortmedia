@@ -100,16 +100,15 @@ class TransferButton extends WatchingWidget {
               final transferResult = await transferRunner
                   .transfer();
               setRunningState(.idle);
-              if (context.mounted) {
-                showMessage(
-                  context,
-                  "${dirData.recognized.length} Dateien"
-                  " erkannt - davon ${transferResult.recognizedCopies} kopiert."
-                  "${dirData.notRecognized.length} nicht"
-                  " erkannt - davon ${transferResult.notRecognizedCopies}"
-                  " kopiert.",
-                );
-              }
+
+              showMessage(
+                null,
+                "${dirData.recognized.length} Dateien"
+                " erkannt - davon ${transferResult.recognizedCopies} kopiert."
+                "${dirData.notRecognized.length} nicht"
+                " erkannt - davon ${transferResult.notRecognizedCopies}"
+                " kopiert.",
+              );
             } finally {
               runningState.removeListener(
                 transferStateListener,
@@ -121,12 +120,7 @@ class TransferButton extends WatchingWidget {
             );
           }
         } catch (e) {
-          if (context.mounted) {
-            showMessage(
-              context,
-              "Fehler beim Kopieren: $e",
-            );
-          }
+          showMessage(null, "Fehler beim Kopieren: $e");
         }
       },
       child: Text(getTranslation().copy),

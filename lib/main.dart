@@ -5,21 +5,23 @@ import 'package:dart_mappable/dart_mappable.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart'
     as flutter_localizations;
-import 'package:sortmedia/features/analyze/uistate/running_state.dart';
-import 'package:sortmedia/features/choose_lang/ui/l10n_provider.dart';
-import 'package:sortmedia/features/choose_lang/uistate/lang_state.dart';
-import 'package:sortmedia/features/settings/uistate/date_format_state.dart';
 
 import 'features/analyze/engine/analyzor.dart';
 import 'features/analyze/engine/exif_analyzor.dart';
 import 'features/analyze/engine/regex_analyzor.dart';
 import 'features/analyze/uistate/analyzor_list.dart';
+import 'features/analyze/uistate/running_state.dart';
+import 'features/choose_lang/ui/l10n_provider.dart';
+import 'features/choose_lang/uistate/lang_state.dart';
 import 'features/config/ui/config_screen.dart';
 import 'features/home/ui/home_screen.dart';
 import 'features/log/ui/logs_screen.dart';
 import 'features/log/uistate/logger.dart';
 import 'features/navigation/uistate/current_screen_model.dart';
+import 'features/settings/uistate/date_format_state.dart';
 import 'features/settings/uistate/settings_state.dart';
+import 'features/show_message/ui/show_message.dart'
+    show scaffoldMessengerKey;
 import 'l10n/app_localizations.dart';
 import 'utils/regexp_mapper.dart';
 
@@ -63,6 +65,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      scaffoldMessengerKey: scaffoldMessengerKey,
       title: 'Sort Media',
       localizationsDelegates: [
         AppLocalizations.delegate,
