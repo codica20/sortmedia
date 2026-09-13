@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # of the product and file versions while build-number is used as the build suffix.
 #
 # Please, when changing version here, do it also at file://lib/features/home/ui/sm_scaffold.dart
-version: 0.3.2+8
+version: 0.3.3+9
 
 environment:
   sdk: ^3.13.0

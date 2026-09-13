@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart' show GetIt;
+import 'package:sortmedia/features/analyze/uistate/running_state.dart';
 
 import '../../../l10n/app_localizations.dart'
     show AppLocalizations;
@@ -14,7 +16,10 @@ class AbortButton extends StatelessWidget {
     return OutlinedButton(
       onPressed: () async {
         log(getTranslation().aborting_message);
-
+        GetIt.instance<RunningStateModel>()
+                .runningState
+                .value =
+            .aborting;
         showMessage(
           context,
           getTranslation().aborting_message,

@@ -94,7 +94,8 @@ The required tool fastforge has to be installed:
   dart pub global activate fastforge
 ```
 
-Run it but check correct umask:
+Run it but check correct *umask* (Otherwise you get an error: `dpkg-deb: Fehler: Control-Verzeichnis hat falsche Zugriffsrechte 770 (muss >=0755 und <=0775 sein)
+MakeError`):
 ```bash
 umask 0002
 fastforge package --platform linux --targets deb
@@ -119,6 +120,8 @@ fastforge package --platform linux --targets deb
   into the introductory text. 
 * show processed files with filters
 * allow multiple source-dest-pairs, which can be separetely activated
+* when skipping file, warn if destination file has different length than 
+  original file.
 * clean logs
 ** scan progress
 ** whole copy progress and 

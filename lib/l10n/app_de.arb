@@ -14,5 +14,7 @@
   "configScreenName": "Konfiguration",
   "logsScreenName": "Protokoll",
   "dateFormatLabelText": "Verzeichnisstruktur (z.B. 'media_'yyyy/yyyy-MM)",
-  "example": "Beispiel: {example} "
+  "example": "Beispiel: {example} ",
+  "abort_button": "Abbrechen",
+  "aborting_message": "Vorgang wird abgebrochen..."
 }

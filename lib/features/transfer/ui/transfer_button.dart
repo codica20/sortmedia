@@ -103,6 +103,7 @@ class TransferButton extends WatchingWidget {
 
               showMessage(
                 null,
+                "${dirData.aborted || transferResult.aborted ? "ABGEBROCHEN: " : ""}" // TODO: l10n
                 "${dirData.recognized.length} Dateien"
                 " erkannt - davon ${transferResult.recognizedCopies} kopiert."
                 "${dirData.notRecognized.length} nicht"

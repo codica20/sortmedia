@@ -7,7 +7,6 @@ void showMessage(BuildContext? context, String msg) {
     ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text(msg)));
   } else {
-    log("Use scaffoldMessengerKey for msg: $msg");
     scaffoldMessengerKey.currentState?.showSnackBar(
       SnackBar(content: Text(msg)),
     );
